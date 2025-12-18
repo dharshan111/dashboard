@@ -97,7 +97,7 @@ TransitionComponent.propTypes = {
   in: PropTypes.bool,
 };
 
-function CustomLabel({ color,  children, ...other }) {
+function CustomLabel({ color, children, ...other }) { // Added expandable prop
   const theme = useTheme();
   const colors = {
     blue: (theme.vars || theme).palette.primary.main,
@@ -111,7 +111,7 @@ function CustomLabel({ color,  children, ...other }) {
       <Typography
         className="labelText"
         variant="body2"
-        sx={{ color: 'white' }}
+        sx={{ color: (theme.vars || theme).palette.common.white }} // Fixed color
       >
         {children}
       </Typography>
@@ -140,6 +140,10 @@ const CustomTreeItem = React.forwardRef(function CustomTreeItem(props, ref) {
 
   const item = publicAPI.getItem(itemId);
   const color = item?.color;
+  
+  // Extract expandable from status
+  const expandable = status.expandable;
+  
   return (
     <TreeItemProvider id={id} itemId={itemId}>
       <TreeItemRoot {...getRootProps(other)}>
@@ -159,7 +163,7 @@ const CustomTreeItem = React.forwardRef(function CustomTreeItem(props, ref) {
             </TreeItemIconContainer>
           )}
 
-          <CustomLabel {...getLabelProps({ color })} />
+          <CustomLabel {...getLabelProps({ color, expandable })} /> {/* Added expandable */}
         </TreeItemContent>
         {children && (
           <TransitionComponent
@@ -197,13 +201,31 @@ CustomTreeItem.propTypes = {
 };
 
 export default function CustomizedTreeView() {
+  const theme = useTheme();
+  
   return (
     <Card
       variant="outlined"
-      sx={{ display: 'flex', flexDirection: 'column', gap: '8px', flexGrow: 1, width:230, borderRadius:"15px",border: "1px solid #1e293b",}}
+      sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        gap: '8px', 
+        flexGrow: 1, 
+        width: 230, 
+        borderRadius: "15px",
+        border: "1px solid #1e293b",
+        backgroundColor: '#080808', // Added black background
+      }}
     >
-      <CardContent>
-        <Typography component="h2" variant="subtitle2">
+      <CardContent sx={{ backgroundColor: '#080808' }}>
+        <Typography 
+          component="h2" 
+          variant="subtitle2"
+          sx={{ 
+            color: (theme.vars || theme).palette.common.white,
+            mb: 2 
+          }}
+        >
           Product tree
         </Typography>
         <RichTreeView
@@ -218,8 +240,23 @@ export default function CustomizedTreeView() {
             height: 'fit-content',
             flexGrow: 1,
             overflowY: 'auto',
-            
-            
+            color: '#fff',
+            // Custom styling for tree items
+            '& .MuiTreeItem-content': {
+              color: '#fff',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+              },
+              '&.Mui-selected': {
+                backgroundColor: 'rgba(255, 255, 255, 0.12)',
+              },
+              '&.Mui-focused': {
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+              },
+            },
+            '& .MuiTreeItem-iconContainer svg': {
+              color: '#fff',
+            },
           }}
           slots={{ item: CustomTreeItem }}
         />

@@ -12,6 +12,7 @@ import AssistantPhotoIcon from "@mui/icons-material/AssistantPhoto";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
+import { useTheme } from "@mui/material/styles";
 
 const data = [
   { label: "India", value: 50000 },
@@ -25,25 +26,25 @@ const countries = [
     name: "India",
     value: 50,
     flag: <AssistantPhotoIcon />,
-    color: "hsla(220, 47%, 4%, 1.00)1.00)",
+    color: "hsl(220, 20%, 65%)",
   },
   {
     name: "USA",
     value: 35,
     flag: <AssistantPhotoIcon />,
-    color: "hsl(220, 25%, 45%)",
+    color: "hsl(220, 20%, 42%)",
   },
   {
     name: "Brazil",
     value: 10,
     flag: <AssistantPhotoIcon />,
-    color: "hsl(220, 25%, 30%)",
+    color: "hsl(220, 20%, 35%)",
   },
   {
     name: "Other",
     value: 5,
     flag: <AssistantPhotoIcon />,
-    color: "hsl(220, 25%, 20%)",
+    color: "hsl(220, 20%, 25%)",
   },
 ];
 
@@ -53,6 +54,7 @@ const StyledText = styled("text", {
   textAnchor: "middle",
   dominantBaseline: "central",
   fill: "#fff",
+  fontFamily: theme.typography.fontFamily,
   variants: [
     {
       props: {
@@ -60,25 +62,15 @@ const StyledText = styled("text", {
       },
       style: {
         fontSize: theme.typography.h5.fontSize,
-      },
-    },
-    {
-      props: ({ variant }) => variant !== "primary",
-      style: {
-        fontSize: theme.typography.body2.fontSize,
-      },
-    },
-    {
-      props: {
-        variant: "primary",
-      },
-      style: {
         fontWeight: theme.typography.h5.fontWeight,
       },
     },
     {
-      props: ({ variant }) => variant !== "primary",
+      props: {
+        variant: "secondary",
+      },
       style: {
+        fontSize: theme.typography.body2.fontSize,
         fontWeight: theme.typography.body2.fontWeight,
       },
     },
@@ -115,6 +107,8 @@ const colors = [
 ];
 
 export default function ChartUserByCountry() {
+  const theme = useTheme();
+  
   return (
     <Card
       variant="outlined"
@@ -125,11 +119,19 @@ export default function ChartUserByCountry() {
         width: 230,
         borderRadius: "10px",
         flexGrow: 1,
-        border: "1px solid #1e293b",
+        border: "1px solid #333",
+        backgroundColor: '#080808',
       }}
     >
-      <CardContent>
-        <Typography component="h2" variant="subtitle2">
+      <CardContent sx={{ backgroundColor: '#080808' }}>
+        <Typography 
+          component="h2" 
+          variant="subtitle2"
+          sx={{ 
+            color: theme.palette.common.white,
+            mb: 2 
+          }}
+        >
           Users by country
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -148,15 +150,30 @@ export default function ChartUserByCountry() {
                 outerRadius: 100,
                 paddingAngle: 0,
                 highlightScope: { fade: "global", highlight: "item" },
+                // REMOVED arcLabel to hide text on pie slices
+                // arcLabel: (item) => `${item.value}`, // Comment or remove this line
+                // arcLabelMinAngle: 20, // Also remove this
               },
             ]}
             height={260}
             width={260}
             hideLegend
+            slotProps={{
+              legend: {
+                hidden: true,
+              },
+            }}
             sx={{
-              fill: "#fff", 
-              borderRadius: "8px",
-              fontSize: "13px",
+              '& text': {
+                fill: '#fff !important',
+              },
+              // arc label styling not showing them
+              // '& .MuiPieArcLabel-root': {
+              //   fill: '#fff',
+              //   fontWeight: 'bold',
+              //   fontSize: '12px',
+              //   filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.5))',
+              // },
             }}
           >
             <PieCenterLabel primaryText="98.5K" secondaryText="Total" />
@@ -168,7 +185,9 @@ export default function ChartUserByCountry() {
             direction="row"
             sx={{ alignItems: "center", gap: 2, pb: 2 }}
           >
-            {country.flag}
+            <Box sx={{ color: '#fff' }}>
+              {country.flag}
+            </Box>
             <Stack sx={{ gap: 1, flexGrow: 1 }}>
               <Stack
                 direction="row"
@@ -178,10 +197,21 @@ export default function ChartUserByCountry() {
                   gap: 2,
                 }}
               >
-                <Typography variant="body2" sx={{ fontWeight: "500" }}>
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    fontWeight: "500",
+                    color: theme.palette.common.white 
+                  }}
+                >
                   {country.name}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "white" }}>
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    color: theme.palette.common.white 
+                  }}
+                >
                   {country.value}%
                 </Typography>
               </Stack>
@@ -190,8 +220,10 @@ export default function ChartUserByCountry() {
                 aria-label="Number of users by country"
                 value={country.value}
                 sx={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   [`& .${linearProgressClasses.bar}`]: {
                     backgroundColor: country.color,
+                    borderRadius: 2,
                   },
                   height: 8,
                   borderRadius: 2,
