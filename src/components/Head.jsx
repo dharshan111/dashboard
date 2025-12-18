@@ -22,7 +22,7 @@ const Search = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    cursor:"pointer",
   },
   width: "100%",
   maxWidth: 200,
@@ -80,7 +80,7 @@ const Head = () => {
         {/* Search */}
         <Search>
           <SearchIconWrapper>
-            startIcon={<CalendarTodayIcon />}
+            <CalendarTodayIcon />
             <SearchOutlinedIcon />
           </SearchIconWrapper>
           <StyledInputBase

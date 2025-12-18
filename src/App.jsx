@@ -1,7 +1,6 @@
 import React from "react";
 import Barchart from "./components/Barchart";
 import Barchart2 from "./components/Barchart2";
-
 import Tree from "./components/Tree";
 import Head from "./components/Head";
 import DashboardStats from "./components/DashboardStats";

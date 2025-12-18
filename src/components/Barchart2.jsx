@@ -51,20 +51,20 @@ export default function SessionsChart() {
       variant="outlined"
       sx={{
         width: "40%",
-        bgcolor: "#121212",
+        bgcolor: "#000000", // Changed to black
         color: "#fff",
         borderRadius: "10px",
-        border: "1px solid #1e293b",
+        border: "1px solid #333",
       }}
     >
       <CardContent>
         <StatHeader
-                  title="Sessions"
-                  value="13,277"
-                  percent="+35%"
-                  percentColor="#22c55e"
-                  subtitle="Sessions per day for the last 30 days"
-                />
+          title="Sessions"
+          value="13,277"
+          percent="+35%"
+          percentColor="#22c55e"
+          subtitle="Sessions per day for the last 30 days"
+        />
         <LineChart
           colors={colorPalette}
           xAxis={[
@@ -73,9 +73,21 @@ export default function SessionsChart() {
               data,
               tickInterval: (index, i) => (i + 1) % 5 === 0,
               height: 24,
+              tickLabelStyle: {
+                fill: "#fff", // White text for x-axis
+                fontSize: "10px",
+              },
             },
           ]}
-          yAxis={[{ width: 50 }]}
+          yAxis={[
+            { 
+              width: 50,
+              tickLabelStyle: {
+                fill: "#fff", // White text for y-axis
+                fontSize: "10px",
+              },
+            },
+          ]}
           series={[
             {
               id: "direct",
@@ -122,14 +134,44 @@ export default function SessionsChart() {
           ]}
           height={250}
           margin={{ left: 0, right: 20, top: 20, bottom: 0 }}
-          grid={{ horizontal: true }}
+          grid={{ 
+            horizontal: true,
+            horizontalStrokeDasharray: "6 6",
+            horizontalStrokeWidth: 1,
+            horizontalStroke: "#444",
+          }}
           sx={{
+            // Target ALL text 
+            '& text': {
+              fill: '#fff !important',
+            },
             
-            
-            "& .MuiChartsAxis-tickLabel":{
-              fill:"white",
+          
+            '& .MuiChartsAxis-tickLabel': {
+              fill: "#fff !important",
+              fontSize: "10px",
             },
 
+            '& .MuiChartsAxis-label': {
+              fill: "#fff !important",
+            },
+
+            '& .MuiChartsAxis-line': {
+              stroke: "#fff !important",
+            },
+
+            '& .MuiChartsAxis-tick': {
+              stroke: "#fff",
+            },
+
+            
+            '& .MuiChartsGrid-line': {
+              stroke: '#444', //dotted lines
+              strokeWidth: 1,
+              strokeDasharray: '3 3', // Dashed lines
+            },
+
+      
             "& .MuiAreaElement-series-organic": {
               fill: "url('#organic')",
             },
@@ -139,8 +181,17 @@ export default function SessionsChart() {
             "& .MuiAreaElement-series-direct": {
               fill: "url('#direct')",
             },
-            "& .MuiChartsAxis-label": {
-              fill: "white",
+         
+            '& .MuiChartsTooltip-root': {
+              backgroundColor: '#1a1a1a !important',
+              border: '1px solid #333',
+              '& .MuiChartsTooltip-label': {
+                color: '#fff !important',
+              },
+              '& .MuiChartsTooltip-value': {
+                color: '#fff !important',
+              },
+             
             },
           }}
           hideLegend
