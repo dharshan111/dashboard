@@ -16,10 +16,10 @@ const scrollAnimation = keyframes`
 // Styled container with scroll animation
 const ScrollContainer = styled(Box)(({ theme }) => ({
   width: "100%",
-  maxWidth: "800px", 
+  maxWidth: "800px",
   position: "relative",
   overflowX: "auto",
-  
+
   // Custom scrollbar
   "&::-webkit-scrollbar": {
     height: "8px",
@@ -35,7 +35,7 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
       background: "#64748b",
     },
   },
-  
+
   // Scroll animation indicator
   "&::after": {
     content: '""',
@@ -50,7 +50,7 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
     opacity: "0.7",
     pointerEvents: "none",
   },
-  
+
   // Hide animation when not scrolling
   "&:not(:hover)::after": {
     opacity: "0.3",
@@ -64,15 +64,17 @@ export default function CustomizedDataGrid() {
         sx={{
           border: "1px solid #1e293b",
           borderRadius: "10px",
+          color: "#E5E7E7",
+          backgroundColor: "#080808",
           width: "100%",
           minWidth: "700px", // Minimum width
-          
+
           // DataGrid scrollbar styling
           "& .MuiDataGrid-virtualScroller": {
             "&::-webkit-scrollbar": {
               height: "8px",
             },
-            
+
             "&::-webkit-scrollbar-track": {
               background: "#0f172a",
             },
@@ -80,11 +82,11 @@ export default function CustomizedDataGrid() {
               background: "#475569",
               borderRadius: "4px",
               "&:hover": {
-                background: "#64748b",
+                background: "#0f0f0fff",
               },
             },
           },
-          
+
           /* Checkbox style */
           "& .MuiCheckbox-root": {
             padding: "4px",
@@ -103,13 +105,13 @@ export default function CustomizedDataGrid() {
           /* Checked state */
           "& .MuiCheckbox-root.Mui-checked": {
             "& .MuiSvgIcon-root": {
-              backgroundColor: "#1e293b",
+              backgroundColor: "#1a2d4dff",
               color: "#1b17daff",
             },
           },
 
-          "& .MuiChip-label":{
-            background:"none !important",
+          "& .MuiChip-label": {
+            background: "none !important",
           },
 
           "& .MuiTablePaginationActions-root": {
@@ -122,30 +124,37 @@ export default function CustomizedDataGrid() {
               borderRadius: "6px",
               padding: "4px",
             },
-          },
           
+          },
+
+          
+          "& .MuiTablePagination-selectLabel":{
+            color:"#fff",
+          },
+
+          "& .MuiTablePagination-displayedRows":{
+            color:"#fff",
+          },
+
           // Row styling
           "& .MuiDataGrid-row": {
-            "&.even": {
-              backgroundColor: "rgba(30, 41, 59, 0.1)",
-            },
-            "&.odd": {
-              backgroundColor: "transparent",
-            },
-          },
           
+              backgroundColor: "rgba(30, 41, 59, 0.1)",
+           
+          },
+
           // Cell styling
           "& .MuiDataGrid-cell": {
             borderBottom: "1px solid #334155",
             color: "#e2e8f0",
           },
-          
+
           // Header styling
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: "#0f172a",
             borderBottom: "2px solid #1e293b",
           },
-          
+
           // Footer styling
           "& .MuiDataGrid-footerContainer": {
             borderTop: "1px solid #1e293b",

@@ -45,18 +45,19 @@ export default function SelectContent() {
       sx={{
         maxHeight: 56,
         width: 215,
-        '&.MuiList-root': {
-          p: '8px',
+        borderRadius:"10px",
+        backgroundColor:"#1d2127ff",
+        color:"#fff",
 
-          
-        },
         [`& .${selectClasses.select}`]: {
           display: 'flex',
           alignItems: 'center',
-          
           gap: '2px',
           pl: 1,
+          color:"#fff",
         },
+
+        
       }}
     >
       <ListSubheader sx={{ pt: 0, color:"#696262ff", }}>Production</ListSubheader>
@@ -70,7 +71,7 @@ export default function SelectContent() {
             <DevicesRoundedIcon sx={{ fontSize: '16px',}} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Sitemark-web" secondary="Web app" sx={{color:"white",}}/>
+        <ListItemText primary="Sitemark-web" secondary="Web app" />
       </MenuItem>
       <MenuItem value={10}>
         <ListItemAvatar>
@@ -88,7 +89,7 @@ export default function SelectContent() {
         </ListItemAvatar>
         <ListItemText primary="Sitemark-Store" secondary="Web app" />
       </MenuItem>
-      <ListSubheader>Development</ListSubheader>
+      <ListSubheader sx={{ pt: 0, color:"#696262ff", }}>Development</ListSubheader>
       <MenuItem value={30}>
         <ListItemAvatar>
           <Avatar alt="Sitemark Store">

@@ -68,6 +68,7 @@ const Head = () => {
         alignItems: "center",
         justifyContent: "space-between",
         gap: 2,
+    
       }}
     >
       <div>
@@ -80,7 +81,7 @@ const Head = () => {
         {/* Search */}
         <Search>
           <SearchIconWrapper>
-            <CalendarTodayIcon />
+            
             <SearchOutlinedIcon />
           </SearchIconWrapper>
           <StyledInputBase
@@ -128,6 +129,16 @@ function ButtonField(props) {
           fontSize: "14px",
           borderRadius: "10px",
           px: 1.5,
+
+           '&:focus': {
+              color:'#eceff3ff',
+            },
+
+            '&:hover':{
+              color:'#eceff3ff'
+            },
+
+         
         }}
       >
         {value ? value.format("MMM DD, YYYY") : "Select date"}

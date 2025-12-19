@@ -51,7 +51,7 @@ export default function SessionsChart() {
       variant="outlined"
       sx={{
         width: "100%",
-        bgcolor: "#000000", // Changed to black
+        bgcolor: '#080808', // Changed to black
         color: "#fff",
         borderRadius: "10px",
         border: "1px solid #333",

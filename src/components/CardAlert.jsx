@@ -6,13 +6,18 @@ import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 
 export default function CardAlert() {
   return (
-    <Card variant="outlined" sx={{ m: 1.5, flexShrink: 0, borderRadius:"15px", border:"1px solid #6a6c6eff", background:"#31353aff", }}>
+    <Card variant="outlined" sx={{ m: 1.5, flexShrink: 0, borderRadius:"15px", border:"1px solid #1e293b", background:"#101111ff", }}>
       <CardContent>
-        <AutoAwesomeRoundedIcon fontSize="small" />
-        <Typography gutterBottom sx={{ fontWeight: 600 }}>
+        <AutoAwesomeRoundedIcon fontSize="small"
+          sx={{
+            color:"#fff",
+          }}
+        
+        />
+        <Typography gutterBottom sx={{ fontWeight: 600, color:"white", }}>
           Plan about to expire
         </Typography>
-        <Typography variant="body2" sx={{ mb: 2, color: '#557DAE' }}>
+        <Typography variant="body2" sx={{ mb: 2, color: '#7e8081ff' }}>
           Enjoy 10% off when renewing your plan <br /> today.
         </Typography>
         <Button size="small" fullWidth sx={{

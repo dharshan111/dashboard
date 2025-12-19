@@ -12,7 +12,8 @@ import Sidebar from "./components/Sidebar";
 const App = () => {
   return (
     <>
-      <div  style={{ padding: 20, display: "flex"}}>
+      <div  style={{ padding: 20, display: "flex", color:"#E5E7E7", backgroundColor:"#080808",}}>
+        
         <div><Sidebar /></div>
         <div className="innerWidth">
           <Head />
