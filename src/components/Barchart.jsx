@@ -56,7 +56,7 @@ export default function StackedBarChart() {
           xAxis={[{ 
             data: xLabels,
             tickLabelStyle: {
-              fill: '#fff',
+              fill: '#fff !important',
               fontSize: '12px',
             }
           }]}
@@ -97,19 +97,19 @@ export default function StackedBarChart() {
 
             '& .MuiChartsTooltip-root': {
               backgroundColor: '#1e293b',
-              color: '#fff',
+              fill: '#fff !important',
               borderRadius: "8px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
               '& .MuiChartsTooltip-label': {
-                color: '#fff',
+                fill: '#fff !important',
               },
               '& .MuiChartsTooltip-value': {
-                color: '#fff',
+                fill: '#fff !important',
               },
             },
 
             '& .MuiChartsAxis-tickLabel': {
-              fill: '#fff',
+              fill: '#fff !important',
             },
 
             '& .MuiChartsAxis-line': {
@@ -117,7 +117,7 @@ export default function StackedBarChart() {
             },
 
             '& .MuiChartsAxis-tick': {
-              stroke: '#fff',
+              stroke: '#fff !important',
             },
 
             /* Hide legend */

@@ -43,7 +43,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   width: "100%",
-  border: "1px solid grey",
+  border: "1px solid #1e293b",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -123,7 +123,7 @@ function ButtonField(props) {
         startIcon={<CalendarTodayIcon />}
         sx={{
           textTransform: "none",
-          border: "1px solid grey",
+          border: "1px solid #1e293b",
           color: "#f3ebebff",
           fontSize: "14px",
           borderRadius: "10px",
@@ -137,7 +137,7 @@ function ButtonField(props) {
         sx={{
           position: "relative",
           textTransform: "none",
-          border: "1px solid grey",
+          border: "1px solid #1e293b",
           color: "#f3ebebff",
           fontSize: "10px",
           borderRadius: "10px",
