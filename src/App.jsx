@@ -12,10 +12,8 @@ import Sidebar from "./components/Sidebar";
 const App = () => {
   return (
     <>
-      <div> 
-        <div>
-          {/* <Sidebar /> */}
-        </div>
+      <div>
+        <div>{/* <Sidebar /> */}</div>
         <div>
           <Head />
           <h3 style={{ padding: 20 }} className="innerWidth ">
@@ -36,10 +34,12 @@ const App = () => {
             <Barchart />
           </div>
           <div
-            className="paddings innerWidth"
-            style={{ display: "flex", gap: "15px" }}
+            className="innerWidth flexCenter"
+            style={{ display: "flex", gap: "15px", alignItems: "center" }}
           >
-            <Datagrid />
+            <div style={{ padding: "15px" }}>
+              <Datagrid />
+            </div>
             <div
               style={{ display: "flex", flexDirection: "column", gap: "10px" }}
             >

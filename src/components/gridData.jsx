@@ -1,6 +1,5 @@
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
-
 import { SparkLineChart } from '@mui/x-charts/SparkLineChart';
 
 function getDaysInMonth(month, year) {
@@ -46,12 +45,37 @@ function renderSparklineCell(params) {
 }
 
 function renderStatus(status) {
-  const colors = {
-    Online: 'success',
-    Offline: 'default',
+  const colorMap = {
+    Online: {
+      backgroundColor: '#0c7432ff', // Green
+      border:"1px solid green",
+      fontSize:"10px",
+    },
+    Offline: {
+      backgroundColor: '#5b5c5fff', // Gray
+      border:"1px solid grey",
+      fontSize:"10px",
+
+    },
   };
 
-  return <Chip label={status} color={colors[status]} size="small" />;
+  const styles = colorMap[status];
+
+  return (
+    <Chip 
+      label={status} 
+      size="small"
+      sx={{
+        backgroundColor: styles.backgroundColor,
+        color: styles.color,
+        fontWeight: 500,
+        '& .MuiChip-label': {
+          padding: '0 8px',
+          
+        },
+      }}
+    />
+  );
 }
 
 export function renderAvatar(params) {
@@ -72,6 +96,9 @@ export function renderAvatar(params) {
     </Avatar>
   );
 }
+
+
+
 
 export const columns = [
   { field: 'pageTitle', headerName: 'Page Title', flex: 1.5, minWidth: 200 },
