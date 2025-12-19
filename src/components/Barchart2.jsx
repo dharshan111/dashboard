@@ -50,7 +50,7 @@ export default function SessionsChart() {
     <Card
       variant="outlined"
       sx={{
-        width: "40%",
+        width: "100%",
         bgcolor: "#000000", // Changed to black
         color: "#fff",
         borderRadius: "10px",

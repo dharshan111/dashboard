@@ -8,10 +8,11 @@ export default function Fourthbx() {
     <>
       <Box
         sx={{
+          width:"100%",
           p: 2.5,
           borderRadius: 2,
           border: "1px solid #1e293b",
-          width: 270,
+          // width: 270,
           height: 183,
           display:"flex",
           flexDirection:"column",

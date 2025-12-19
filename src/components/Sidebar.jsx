@@ -1,178 +1,156 @@
-import { useState } from "react";
-import {
-  Box,
-  Typography,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Avatar,
-  Menu,
-  MenuItem,
-  Divider,
-} from "@mui/material";
+import { styled } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import MuiDrawer, { drawerClasses } from '@mui/material/Drawer';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import SelectContent from './SelectContent';
+import MenuContent from './MenuContent';
+import CardAlert from './CardAlert';
+// import OptionMenu from './OptionMenu';
 
-import HomeIcon from "@mui/icons-material/Home";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import PeopleIcon from "@mui/icons-material/People";
-import TaskIcon from "@mui/icons-material/Task";
-import SettingsIcon from "@mui/icons-material/Settings";
-import InfoIcon from "@mui/icons-material/Info";
-import FeedbackIcon from "@mui/icons-material/Feedback";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+const drawerWidth = 260;
 
-export default function Sidebar() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [active, setActive] = useState("Home");
+const Drawer = styled(MuiDrawer)(({ theme }) => ({
+  width: drawerWidth,
+  flexShrink: 0,
+  boxSizing: 'border-box',
+  marginTop: '10px',
+  [`& .${drawerClasses.paper}`]: {
+    width: drawerWidth,
+    boxSizing: 'border-box',
+    backgroundColor: "#0C1118",
+    borderRight: '1px solid #1e293b',
+    boxShadow: '4px 0 20px rgba(0, 0, 0, 0.5)',
+    display: 'flex',
+    flexDirection: 'column',
+    '&::-webkit-scrollbar': {
+      width: '6px',
+    },
+    '&::-webkit-scrollbar-track': {
+      background: '#0f172a',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: '#334155',
+      borderRadius: '3px',
+      '&:hover': {
+        background: '#475569',
+      },
+    },
+  },
+}));
 
-  const open = Boolean(anchorEl);
-
-  const handleOpen = (e) => setAnchorEl(e.currentTarget);
-  const handleClose = () => setAnchorEl(null);
-
-  const menuItems = [
-    { label: "Home", icon: <HomeIcon /> },
-    { label: "Analytics", icon: <BarChartIcon /> },
-    { label: "Clients", icon: <PeopleIcon /> },
-    { label: "Tasks", icon: <TaskIcon /> },
-    { label: "Settings", icon: <SettingsIcon /> },
-    { label: "About", icon: <InfoIcon /> },
-    { label: "Feedback", icon: <FeedbackIcon /> },
-  ];
-
+export default function SideMenu() {
   return (
-    <Box
+    <Drawer
+      variant="permanent"
       sx={{
-        width: 280,
-        height: "100vh",
-        bgcolor: "#020617",
-        color: "#fff",
-        display: "flex",
-        flexDirection: "column",
-        borderRight: "1px solid #1e293b",
+        display: { xs: 'none', md: 'block', backgroundColor:"#0C1118" },
       }}
     >
-      {/* TOP APP SELECTOR */}
-      <Box sx={{ p: 2 }}>
-        <Box
-          onClick={handleOpen}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            px: 2,
-            py: 1.5,
-            borderRadius: 2,
-            border: "1px solid #1e293b",
-            cursor: "pointer",
-            "&:hover": {
-              backgroundColor: "#020617",
-            },
-          }}
-        >
-          <Box>
-            <Typography fontSize={14} fontWeight={600}>
-              Sitemapk-web
-            </Typography>
-            <Typography fontSize={12} color="#94a3b8">
-              Web app
-            </Typography>
-          </Box>
-          <ExpandMoreIcon />
-        </Box>
-
-        {/* DROPDOWN */}
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          PaperProps={{
-            sx: {
-              bgcolor: "#020617",
-              color: "#fff",
-              borderRadius: 2,
-              border: "1px solid #1e293b",
-              mt: 1,
-            },
-          }}
-        >
-          <MenuItem onClick={handleClose}>Sitemapk-web</MenuItem>
-          <MenuItem onClick={handleClose}>Marketing App</MenuItem>
-          <MenuItem onClick={handleClose}>Admin Panel</MenuItem>
-        </Menu>
-      </Box>
-
-      {/* MENU LIST */}
-      <Box sx={{ flexGrow: 1, overflowY: "auto", px: 1 }}>
-        <List>
-          {menuItems.map((item) => (
-            <ListItemButton
-              key={item.label}
-              onClick={() => setActive(item.label)}
-              sx={{
-                borderRadius: 2,
-                mb: 0.5,
-                bgcolor:
-                  active === item.label ? "#1e293b" : "transparent",
-                "&:hover": {
-                  bgcolor: "#1e293b",
-                },
-              }}
-            >
-              <ListItemIcon sx={{ color: "#94a3b8", minWidth: 36 }}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.label}
-                primaryTypographyProps={{
-                  fontSize: 14,
-                  fontWeight: active === item.label ? 600 : 500,
-                }}
-              />
-            </ListItemButton>
-          ))}
-        </List>
-      </Box>
-
-      {/* PROMO CARD */}
-      <Box sx={{ p: 2 }}>
-        <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid #1e293b",
-            bgcolor: "#020617",
-          }}
-        >
-          <Typography fontSize={14} fontWeight={600}>
-            Plan about to expire
-          </Typography>
-          <Typography fontSize={12} color="#94a3b8" mt={0.5}>
-            Enjoy 10% off when renewing your plan today.
-          </Typography>
-        </Box>
-      </Box>
-
-      {/* USER PROFILE */}
-      <Divider sx={{ borderColor: "#1e293b" }} />
+      {/* Top Section with Logo/Select */}
       <Box
         sx={{
+          display: 'flex',
           p: 2,
-          display: "flex",
-          alignItems: "center",
-          gap: 1.5,
+          backgroundColor: '#0f172a',
+          borderBottom: '1px solid #1e293b',
         }}
       >
-        <Avatar src="https://i.pravatar.cc/40" />
-        <Box>
-          <Typography fontSize={14} fontWeight={600}>
+        <SelectContent />
+      </Box>
+      
+      {/* Divider */}
+      <Divider sx={{ borderColor: '#1e293b' }} />
+      
+      {/* Main Menu Content */}
+      <Box
+        sx={{
+          overflow: 'auto',
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          backgroundColor: '#0C1017',
+          '&::-webkit-scrollbar': {
+            width: '6px',
+          },
+          '&::-webkit-scrollbar-track': {
+            background: 'none',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: '#334155',
+            borderRadius: '3px',
+          },
+        }}
+      >
+        <MenuContent />
+        <Box sx={{ p: 2, background:"#0C1017" }}>
+          <CardAlert />
+        </Box>
+      </Box>
+      
+      {/* Divider above user section */}
+      <Divider sx={{ borderColor: '#1e293b' }} />
+      
+      {/* User Profile Section */}
+      <Stack
+        direction="row"
+        sx={{
+          p: 2.5,
+          gap: 1.5,
+          alignItems: 'center',
+          backgroundColor: '#0C1017',
+          borderTop: '1px solid #1e293b',
+          '&:hover': {
+            backgroundColor: 'rgba(30, 41, 59, 0.3)',
+            transition: 'background-color 0.2s ease',
+          },
+        }}
+      >
+        <Avatar
+          sizes="small"
+          alt="Riley Carter"
+          src="/static/images/avatar/7.jpg"
+          sx={{ 
+            width: 40, 
+            height: 40,
+            border: '2px solid #3b82f6',
+            boxShadow: '0 0 10px rgba(59, 130, 246, 0.3)',
+          }}
+        />
+        <Box sx={{ mr: 'auto', minWidth: 0, background:"none"}}>
+          <Typography 
+            variant="body2" 
+            sx={{ 
+              fontWeight: 600, 
+              lineHeight: '1.2',
+              color: '#ffffff',
+              fontSize: '0.9rem',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              background:"none",
+              textOverflow: 'ellipsis',
+            }}
+          >
             Riley Carter
           </Typography>
-          <Typography fontSize={12} color="#94a3b8">
+          <Typography 
+            variant="caption" 
+            sx={{ 
+              color: '#94a3b8',
+              fontSize: '0.75rem',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              background:"none",
+              textOverflow: 'ellipsis',
+            }}
+          >
             riley@email.com
           </Typography>
         </Box>
-      </Box>
-    </Box>
+        {/* <OptionMenu /> */}
+      </Stack>
+    </Drawer>
   );
 }

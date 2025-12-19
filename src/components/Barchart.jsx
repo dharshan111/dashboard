@@ -13,7 +13,7 @@ export default function StackedBarChart() {
     <>
       <Box
         sx={{
-          width: "40%",
+          width: "100%",
           padding: "10px",
           color: "#fff",
           borderRadius: "10px",
@@ -31,7 +31,7 @@ export default function StackedBarChart() {
 
         <BarChart
           height={270}
-          width={500}
+          // width={500}
           margin={{ top: 0, bottom: 15, left: 5, right: 5 }}
           series={[
             {

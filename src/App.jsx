@@ -12,32 +12,32 @@ import Sidebar from "./components/Sidebar";
 const App = () => {
   return (
     <>
-      <div>
-        <div>{/* <Sidebar /> */}</div>
-        <div>
+      <div  style={{ padding: 20, display: "flex"}}>
+        <div><Sidebar /></div>
+        <div className="innerWidth">
           <Head />
-          <h3 style={{ padding: 20 }} className="innerWidth ">
+          <h3 className="innerWidth ">
             Overview
           </h3>
           <div
-            style={{ padding: 20, display: "flex", gap: "15px" }}
-            className="innerWidth flexCenter"
+            style={{display: "flex", padding:"5px", gap:"10px" }}
+            className="innerWidth"
           >
             <DashboardStats />
             <Fourthbx />
           </div>
           <div
-            style={{ display: "flex", gap: "15px" }}
-            className="innerWidth flexCenter"
+            style={{ display: "flex", gap: "15px", padding:"5px" }}
+            className="innerWidth"
           >
             <Barchart2 />
             <Barchart />
           </div>
           <div
-            className="innerWidth flexCenter"
-            style={{ display: "flex", gap: "15px", alignItems: "center" }}
+            className="innerWidth "
+            style={{ display: "flex", gap: "15px", alignItems: "center", padding:"10px" }}
           >
-            <div style={{ padding: "15px" }}>
+            <div>
               <Datagrid />
             </div>
             <div

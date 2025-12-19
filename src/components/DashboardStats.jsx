@@ -3,7 +3,7 @@ import StatCardSX from "./StatCardSX";
 
 export default function DashboardStats() {
   return (
-    <Box display="flex" gap={2}>
+    <Box display="flex" gap={1}>
       {/* CARD 1 */}
       <StatCardSX
         title="Users"
