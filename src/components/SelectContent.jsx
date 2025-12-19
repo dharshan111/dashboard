@@ -1,17 +1,17 @@
-import * as React from 'react';
-import MuiAvatar from '@mui/material/Avatar';
-import MuiListItemAvatar from '@mui/material/ListItemAvatar';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListSubheader from '@mui/material/ListSubheader';
-import Select, { selectClasses } from '@mui/material/Select';
-import Divider from '@mui/material/Divider';
-import { styled } from '@mui/material/styles';
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
-import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
+import * as React from "react";
+import MuiAvatar from "@mui/material/Avatar";
+import MuiListItemAvatar from "@mui/material/ListItemAvatar";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListSubheader from "@mui/material/ListSubheader";
+import Select, { selectClasses } from "@mui/material/Select";
+import Divider from "@mui/material/Divider";
+import { styled } from "@mui/material/styles";
+import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
+import SmartphoneRoundedIcon from "@mui/icons-material/SmartphoneRounded";
+import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
 
 const Avatar = styled(MuiAvatar)(({ theme }) => ({
   width: 28,
@@ -27,7 +27,7 @@ const ListItemAvatar = styled(MuiListItemAvatar)({
 });
 
 export default function SelectContent() {
-  const [company, setCompany] = React.useState('');
+  const [company, setCompany] = React.useState("");
 
   const handleChange = (event) => {
     setCompany(event.target.value);
@@ -40,35 +40,90 @@ export default function SelectContent() {
       value={company}
       onChange={handleChange}
       displayEmpty
-      inputProps={{ 'aria-label': 'Select company' }}
+      inputProps={{ "aria-label": "Select company" }}
       fullWidth
       sx={{
         maxHeight: 56,
         width: 215,
-        borderRadius:"10px",
-        backgroundColor:"#1d2127ff",
-        color:"#fff",
+        borderRadius: "10px",
+        backgroundColor: "#080808", 
+        color: "#fff", 
+        "& .MuiListItemText-root": {
+          "& .MuiListItemText-secondary": {
+            display: "block",
+            color: "#597e9bff",
+          },
+        },
 
         [`& .${selectClasses.select}`]: {
-          display: 'flex',
-          alignItems: 'center',
-          gap: '2px',
+          display: "flex",
+          alignItems: "center",
+          gap: "2px",
           pl: 1,
-          color:"#fff",
+          color: "#fff", 
+        },
+
+      
+        "& .MuiPaper-root": {
+          backgroundColor: "#080808", 
+          color: "#fff", 
         },
 
         
+        "& .MuiSelect-icon": {
+          color: "#fff",
+        // White dropdown icon
+        },
+      }}
+      MenuProps={{
+        PaperProps: {
+          sx: {
+            backgroundColor: "#080808", 
+            marginTop:"5px",
+            borderRadius:"10px",
+            color: "#fff",
+            "& .MuiMenuItem-root": {
+              color: "#fff", 
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.1)", 
+              },
+              "&.Mui-selected": {
+                backgroundColor: "rgba(255, 255, 255, 0.15)", 
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.2)",
+                },
+              },
+            },
+            "& .MuiListSubheader-root": {
+              color: "#aaa", 
+              backgroundColor: "#080808", 
+              lineHeight: "36px",
+            },
+            "& .MuiDivider-root": {
+              borderColor: "rgba(255, 255, 255, 0.12)",
+              backgroundColor: "transparent",
+            },
+            "& .MuiListItemText-secondary": {
+              color: "#597e9bff", 
+            },
+          },
+        },
       }}
     >
-      <ListSubheader sx={{ pt: 0, color:"#696262ff", }}>Production</ListSubheader>
+      <ListSubheader sx={{ pt: 0, color: "#aaa" }}>
+        Production
+      </ListSubheader>
       <MenuItem value="">
         <ListItemAvatar>
-          <Avatar alt="Sitemark web" sx={{
-            "& .MuiTypography-root":{
-                stroke:"#fff !important"
-            },
-          }}>
-            <DevicesRoundedIcon sx={{ fontSize: '16px',}} />
+          <Avatar
+            alt="Sitemark web"
+            sx={{
+              "& .MuiTypography-root": {
+                stroke: "#fff !important",
+              },
+            }}
+          >
+            <DevicesRoundedIcon sx={{ fontSize: "16px" }} />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Sitemark-web" secondary="Web app" />
@@ -76,7 +131,7 @@ export default function SelectContent() {
       <MenuItem value={10}>
         <ListItemAvatar>
           <Avatar alt="Sitemark App">
-            <SmartphoneRoundedIcon sx={{ fontSize: '1rem' }} />
+            <SmartphoneRoundedIcon sx={{ fontSize: "1rem" }} />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Sitemark-app" secondary="Mobile application" />
@@ -84,23 +139,25 @@ export default function SelectContent() {
       <MenuItem value={20}>
         <ListItemAvatar>
           <Avatar alt="Sitemark Store">
-            <DevicesRoundedIcon sx={{ fontSize: '1rem' }} />
+            <DevicesRoundedIcon sx={{ fontSize: "1rem" }} />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Sitemark-Store" secondary="Web app" />
       </MenuItem>
-      <ListSubheader sx={{ pt: 0, color:"#696262ff", }}>Development</ListSubheader>
+      <ListSubheader sx={{ pt: 0, color: "#aaa" }}>
+        Development
+      </ListSubheader>
       <MenuItem value={30}>
         <ListItemAvatar>
           <Avatar alt="Sitemark Store">
-            <ConstructionRoundedIcon sx={{ fontSize: '1rem' }} />
+            <ConstructionRoundedIcon sx={{ fontSize: "1rem" }} />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Sitemark-Admin" secondary="Web app" />
       </MenuItem>
-      <Divider sx={{ mx: -1 }} />
+      <Divider sx={{ mx: -1, borderColor: "rgba(255, 255, 255, 0.12)" }} />
       <MenuItem value={40}>
-        <ListItemIcon>
+        <ListItemIcon sx={{ color: "#fff" }}>
           <AddRoundedIcon />
         </ListItemIcon>
         <ListItemText primary="Add product" secondary="Web app" />

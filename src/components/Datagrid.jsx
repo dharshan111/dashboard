@@ -87,10 +87,11 @@ export default function CustomizedDataGrid() {
             },
           },
 
+
           /* Checkbox style */
           "& .MuiCheckbox-root": {
             padding: "4px",
-            borderRadius: "4px",
+            borderRadius: "10px",
           },
 
           "& .MuiDataGrid-virtualScrollerRenderZone": {
@@ -100,13 +101,16 @@ export default function CustomizedDataGrid() {
           "& .MuiCheckbox-root .MuiSvgIcon-root": {
             fontSize: 20,
             borderRadius: "5px",
+            color:"grey",
           },
+
+          
 
           /* Checked state */
           "& .MuiCheckbox-root.Mui-checked": {
             "& .MuiSvgIcon-root": {
-              backgroundColor: "#1a2d4dff",
-              color: "#1b17daff",
+              backgroundColor: "#496eafff",
+              color: "#fcfdffff",
             },
           },
 
@@ -118,29 +122,44 @@ export default function CustomizedDataGrid() {
             display: "flex",
             gap: "10px",
             padding: "10px",
+            
             "& .MuiButtonBase-root": {
               border: "1px solid #34445f",
               fontSize: "12px",
               borderRadius: "6px",
               padding: "4px",
+              color:"#b1b0b0ff",
             },
-          
+          },
+          "& .MuiTablePagination-input": {
+            color: "#fff",
+            border:"1px solid #34445f",
+            borderRadius:"10px",
           },
 
-          
-          "& .MuiTablePagination-selectLabel":{
-            color:"#fff",
+          "& .MuiTablePagination-selectLabel": {
+            color: "#fff",
           },
 
-          "& .MuiTablePagination-displayedRows":{
-            color:"#fff",
+          "& .MuiTablePagination-displayedRows": {
+            color: "#fff",
           },
 
           // Row styling
           "& .MuiDataGrid-row": {
-          
-              backgroundColor: "rgba(30, 41, 59, 0.1)",
-           
+            backgroundColor: "rgba(30, 41, 59, 0.1)",
+
+            "&:hover": {
+              backgroundColor: "#0f172a",
+            },
+
+            "&.Mui-selected": {
+              backgroundColor: "#000",
+
+              "&:hover": {
+                backgroundColor: "#1a1a1a",
+              },
+            },
           },
 
           // Cell styling
@@ -150,7 +169,7 @@ export default function CustomizedDataGrid() {
           },
 
           // Header styling
-          "& .MuiDataGrid-columnHeaders": {
+          "& .MuiDataGrid-columnHeader": {
             backgroundColor: "#0f172a",
             borderBottom: "2px solid #1e293b",
           },
@@ -160,6 +179,7 @@ export default function CustomizedDataGrid() {
             borderTop: "1px solid #1e293b",
             backgroundColor: "#0f172a",
           },
+
         }}
         checkboxSelection
         rows={rows}

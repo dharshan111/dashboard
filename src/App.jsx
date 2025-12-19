@@ -1,4 +1,5 @@
 import React from "react";
+import { Grid, Box, Stack, Typography } from "@mui/material";
 import Barchart from "./components/Barchart";
 import Barchart2 from "./components/Barchart2";
 import Tree from "./components/Tree";
@@ -11,46 +12,76 @@ import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
-    <>
-      <div  style={{ padding: 20, display: "flex", color:"#E5E7E7", backgroundColor:"#080808",}}>
-        
-        <div><Sidebar /></div>
-        <div className="innerWidth">
-          <Head />
-          <h3 className="innerWidth ">
-            Overview
-          </h3>
-          <div
-            style={{display: "flex", padding:"5px", gap:"10px" }}
-            className="innerWidth"
-          >
+    <Box
+      sx={{
+        display: "flex",
+        color: "#E5E7E7",
+        backgroundColor: "#080808",
+        minHeight: "100vh",
+        p: 2.5, // Equivalent to padding: 20px (MUI uses 8px spacing unit)
+      }}
+    >
+      <Sidebar />
+
+      <Box
+        sx={{
+          width: "100%",
+          maxWidth: { sm: "100%", md: "1700px" },
+          ml: 2, // Add some margin left since sidebar is separate
+        }}
+      >
+        <Head />
+
+        <Typography
+          component="h2"
+          variant="h6"
+          sx={{ mb: 2, color: "#E5E7E7" }}
+        >
+          Overview
+        </Typography>
+
+        <Grid container spacing={2} columns={12} sx={{ mb: 2 }}>
+          <Grid size={{ xs: 12, sm: 8, lg: 9 }}>
             <DashboardStats />
+          </Grid>
+          <Grid size={{ xs: 12, sm: 4, lg: 3 }}>
             <Fourthbx />
-          </div>
-          <div
-            style={{ display: "flex", gap: "15px", padding:"5px" }}
-            className="innerWidth"
-          >
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={2} columns={12} sx={{ mb: 2 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Barchart2 />
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Barchart />
-          </div>
-          <div
-            className="innerWidth "
-            style={{ display: "flex", gap: "15px", alignItems: "center", padding:"10px" }}
-          >
-            <div>
-              <Datagrid />
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          </Grid>
+        </Grid>
+
+        <Typography
+          component="h2"
+          variant="h6"
+          sx={{ mb: 2, color: "#E5E7E7" }}
+        >
+          Details
+        </Typography>
+
+        <Grid container spacing={2} columns={12}>
+          <Grid size={{ xs: 12, lg: 9 }}>
+            <Datagrid />
+          </Grid>
+          <Grid size={{ xs: 12, lg: 3 }}>
+            <Stack
+              gap={2}
+              direction={{ xs: "column", sm: "row", lg: "column" }}
             >
               <Tree />
               <Piechart />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
   );
 };
 

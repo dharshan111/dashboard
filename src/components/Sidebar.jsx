@@ -111,11 +111,10 @@ export default function SideMenu() {
         <Avatar
           sizes="small"
           alt="Riley Carter"
-          src="/static/images/avatar/7.jpg"
+          src="./phonecall.jpg"
           sx={{ 
             width: 40, 
             height: 40,
-            border: '2px solid #3b82f6',
             boxShadow: '0 0 10px rgba(59, 130, 246, 0.3)',
           }}
         />

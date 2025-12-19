@@ -13,7 +13,7 @@ export default function Fourthbx() {
           borderRadius: 2,
           border: "1px solid #1e293b",
         
-          height: 183,
+          height:200,
           display:"flex",
           flexDirection:"column",
           gap:"2.5px",
