@@ -8,9 +8,9 @@ import Typography from '@mui/material/Typography';
 import SelectContent from './SelectContent';
 import MenuContent from './MenuContent';
 import CardAlert from './CardAlert';
-// import OptionMenu from './OptionMenu';
+import OptionMenu from './OptionMenu';
 
-const drawerWidth = 260;
+const drawerWidth = 240
 
 const Drawer = styled(MuiDrawer)(({ theme }) => ({
   width: drawerWidth,
@@ -148,7 +148,7 @@ export default function SideMenu() {
             riley@email.com
           </Typography>
         </Box>
-        {/* <OptionMenu /> */}
+        <OptionMenu />
       </Stack>
     </Drawer>
   );

@@ -46,7 +46,8 @@ export default function SelectContent() {
         maxHeight: 56,
         width: 215,
         borderRadius: "10px",
-        backgroundColor: "#080808", 
+        backgroundColor: "#0C1017", 
+        border:"1px solid grey",
         color: "#fff", 
         "& .MuiListItemText-root": {
           "& .MuiListItemText-secondary": {
@@ -65,7 +66,7 @@ export default function SelectContent() {
 
       
         "& .MuiPaper-root": {
-          backgroundColor: "#080808", 
+          backgroundColor: "#0C1017", 
           color: "#fff", 
         },
 
@@ -78,7 +79,7 @@ export default function SelectContent() {
       MenuProps={{
         PaperProps: {
           sx: {
-            backgroundColor: "#080808", 
+            backgroundColor: "#0C1017", 
             marginTop:"5px",
             borderRadius:"10px",
             color: "#fff",
@@ -96,7 +97,7 @@ export default function SelectContent() {
             },
             "& .MuiListSubheader-root": {
               color: "#aaa", 
-              backgroundColor: "#080808", 
+              backgroundColor: "#0C1017", 
               lineHeight: "36px",
             },
             "& .MuiDivider-root": {

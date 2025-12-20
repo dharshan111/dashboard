@@ -116,7 +116,7 @@ export default function ChartUserByCountry() {
         display: "flex",
         flexDirection: "column",
         gap: "8px",
-        width: 230,
+        width: "100%",
         borderRadius: "10px",
         flexGrow: 1,
         border: "1px solid #333",

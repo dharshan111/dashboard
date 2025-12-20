@@ -47,13 +47,14 @@ function renderSparklineCell(params) {
 function renderStatus(status) {
   const colorMap = {
     Online: {
-      backgroundColor: '#0c7432ff', // Green
-      border:"1px solid green",
+
+      color:"#22c55e",
+      backgroundColor:"rgba(34, 197, 94, 0.15)",
       fontSize:"10px",
     },
     Offline: {
-      backgroundColor: '#5b5c5fff', // Gray
-      border:"1px solid grey",
+      color:"#dcdfe2ff",
+      backgroundColor:"rgba(59,130,246,0.15)",
       fontSize:"10px",
 
     },

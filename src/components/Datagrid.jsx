@@ -170,8 +170,8 @@ export default function CustomizedDataGrid() {
 
           // Header styling
           "& .MuiDataGrid-columnHeader": {
-            backgroundColor: "#0f172a",
-            borderBottom: "2px solid #1e293b",
+            backgroundColor: "#0f1011ff",
+            borderBottom: "1px solid #1e293b",
           },
 
           // Footer styling
@@ -180,7 +180,13 @@ export default function CustomizedDataGrid() {
             backgroundColor: "#0f172a",
           },
 
+          "& .MuiDataGrid-iconSeparator":{
+            display: "none",
+          },
+
         }}
+
+
         checkboxSelection
         rows={rows}
         columns={columns}

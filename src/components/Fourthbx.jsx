@@ -4,6 +4,8 @@ import Button from "@mui/material/Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function Fourthbx() {
+
+
   return (
     <>
       <Box
@@ -12,7 +14,6 @@ export default function Fourthbx() {
           p: 2.5,
           borderRadius: 2,
           border: "1px solid #1e293b",
-        
           height:200,
           display:"flex",
           flexDirection:"column",
@@ -39,14 +40,17 @@ export default function Fourthbx() {
         {/* GRAPH PLACEHOLDER */}
         <Box />
         <Button
-          endIcon={<ArrowForwardIosIcon color="black" fontSize="10px"/>}
+          endIcon={<ArrowForwardIosIcon sx={{fontSize:"5px",}}/>}
           sx={{
             border:"1px solid grey",
             textTransform: "none",
+            background:"white",
             fontSize: 14,
             fontWeight:450,
+            color:"black",
             width:130,
             borderRadius: "10px",
+
           }}
         >
           Get insights

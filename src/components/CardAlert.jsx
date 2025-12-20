@@ -10,7 +10,7 @@ export default function CardAlert() {
       <CardContent>
         <AutoAwesomeRoundedIcon fontSize="small"
           sx={{
-            color:"#fff",
+            color:"#fff"
           }}
         
         />

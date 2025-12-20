@@ -4,6 +4,8 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Box from "@mui/material/Box";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 
 import dayjs from "dayjs";
 import Button from "@mui/material/Button";
@@ -71,9 +73,11 @@ const Head = () => {
     
       }}
     >
-      <div>
-        <Typography variant="h6" sx={{ fontSize: "15px", fontWeight: 500 }}>
-          Dashboard
+      <div style={{display:"flex", alignItems:"center", gap:"2px",}}>
+        <Typography variant="body1" sx={{fontSize:"15px", color:"#3b3f63ff"}}>Dashboard</Typography>
+        <ArrowForwardIosIcon  size="small" sx={{fontSize:"12px", }}/>
+        <Typography variant="body1" sx={{ color: 'white', fontWeight: 600 }}>
+          Home
         </Typography>
       </div>
 

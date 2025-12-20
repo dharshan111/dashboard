@@ -20,7 +20,7 @@ export default function StatCardSX(props) {
         p: 2.5,
         borderRadius: 2,
         border: "1px solid #1e293b",
-        width: 260,
+        width: "100%",
         height:200,
       }}
     >

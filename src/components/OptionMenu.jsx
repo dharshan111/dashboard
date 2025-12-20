@@ -3,13 +3,13 @@ import { styled } from '@mui/material/styles';
 import Divider, { dividerClasses } from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MuiMenuItem from '@mui/material/MenuItem';
+import IconButton from '@mui/material/IconButton';
 import { paperClasses } from '@mui/material/Paper';
 import { listClasses } from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon, { listItemIconClasses } from '@mui/material/ListItemIcon';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
-import MenuContent from './MenuContent';
 
 const MenuItem = styled(MuiMenuItem)({
   margin: '2px 0',
@@ -26,13 +26,20 @@ export default function OptionsMenu() {
   };
   return (
     <React.Fragment>
-      <MenuContent
+      <IconButton
         aria-label="Open menu"
         onClick={handleClick}
-        sx={{ borderColor: 'transparent' }}
+        sx={{ 
+          borderColor: 'transparent',
+          color: '#94a3b8',
+          '&:hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            color: '#ffffff',
+          }
+        }}
       >
         <MoreVertRoundedIcon />
-      </MenuContent>
+      </IconButton>
       <Menu
         anchorEl={anchorEl}
         id="menu"
@@ -44,24 +51,84 @@ export default function OptionsMenu() {
         sx={{
           [`& .${listClasses.root}`]: {
             padding: '4px',
+            background: '#000',
+            borderRadius: '10px',
+            border: '1px solid black',
           },
           [`& .${paperClasses.root}`]: {
             padding: 0,
+            backgroundColor: '#1e293b',
+            border: '1px solid #334155',
+            color: '#ffffff',
+            background: 'transparent', // Make paper transparent to show list background
           },
           [`& .${dividerClasses.root}`]: {
             margin: '4px -4px',
+            borderColor: '#334155',
+          },
+          [`& .${listItemIconClasses.root}`]: {
+            color: '#94a3b8',
           },
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem 
+          onClick={handleClose}
+          sx={{ 
+            color: '#e2e8f0',
+            '&:hover': { 
+              backgroundColor: '#334155',
+              borderRadius: '15px',
+            }
+          }}
+        >
+          Profile
+        </MenuItem>
+        <MenuItem 
+          onClick={handleClose}
+          sx={{ 
+            color: '#e2e8f0',
+            '&:hover': { 
+              backgroundColor: '#334155',
+              borderRadius: '15px',
+            }
+          }}
+        >
+          My account
+        </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>Add another account</MenuItem>
-        <MenuItem onClick={handleClose}>Settings</MenuItem>
+        <MenuItem 
+          onClick={handleClose}
+          sx={{ 
+            color: '#e2e8f0',
+            '&:hover': { 
+              backgroundColor: '#334155',
+              borderRadius: '15px',
+            }
+          }}
+        >
+          Add another account
+        </MenuItem>
+        <MenuItem 
+          onClick={handleClose}
+          sx={{ 
+            color: '#e2e8f0',
+            '&:hover': { 
+              backgroundColor: '#334155',
+              borderRadius: '15px',
+            }
+          }}
+        >
+          Settings
+        </MenuItem>
         <Divider />
         <MenuItem
           onClick={handleClose}
           sx={{
+            color: '#e2e8f0',
+            '&:hover': { 
+              backgroundColor: '#334155',
+              borderRadius: '15px',
+            },
             [`& .${listItemIconClasses.root}`]: {
               ml: 'auto',
               minWidth: 0,

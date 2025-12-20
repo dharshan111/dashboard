@@ -10,15 +10,17 @@ import Piechart from "./components/Piechart";
 import Datagrid from "./components/Datagrid";
 import Sidebar from "./components/Sidebar";
 
+
 const App = () => {
   return (
-    <Box
+
+    <Box 
       sx={{
         display: "flex",
         color: "#E5E7E7",
         backgroundColor: "#080808",
         minHeight: "100vh",
-        p: 2.5, // Equivalent to padding: 20px (MUI uses 8px spacing unit)
+        p: 2,  // Equivalent to padding: 20px (MUI uses 8px spacing unit)
       }}
     >
       <Sidebar />
@@ -40,7 +42,7 @@ const App = () => {
           Overview
         </Typography>
 
-        <Grid container spacing={2} columns={12} sx={{ mb: 2 }}>
+        <Grid container spacing={1} columns={12} sx={{ mb: 2 }}>
           <Grid size={{ xs: 12, sm: 8, lg: 9 }}>
             <DashboardStats />
           </Grid>

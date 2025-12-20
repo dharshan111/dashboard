@@ -211,7 +211,7 @@ export default function CustomizedTreeView() {
         flexDirection: 'column', 
         gap: '8px', 
         flexGrow: 1, 
-        width: 230, 
+        width: "100%", 
         borderRadius: "15px",
         border: "1px solid #1e293b",
         backgroundColor: '#080808', // Added black background
