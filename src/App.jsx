@@ -1,44 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Box, Stack, Typography } from "@mui/material";
-import Barchart from "./components/Barchart";
-import Barchart2 from "./components/Barchart2";
-import Tree from "./components/Tree";
+
+// Desktop Sidebar
+import Sidebar from "./components/Sidebar";
+
+// Mobile Components
+import MobileHeader from "./components/MobileHeader";
+import MobileSidebar from "./components/MobileSidebar";
+
+// Dashboard Components
 import Head from "./components/Head";
 import DashboardStats from "./components/DashboardStats";
 import Fourthbx from "./components/Fourthbx";
-import Piechart from "./components/Piechart";
+import Barchart from "./components/Barchart";
+import Barchart2 from "./components/Barchart2";
 import Datagrid from "./components/Datagrid";
-import Sidebar from "./components/Sidebar";
-
+import Tree from "./components/Tree";
+import Piechart from "./components/Piechart";
 
 const App = () => {
-  return (
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-    <Box 
+  const toggleDrawer = () => {
+    setMobileOpen((prev) => !prev);
+  };
+
+  const closeDrawer = () => {
+    setMobileOpen(false);
+  };
+
+  return (
+    <Box
       sx={{
         display: "flex",
+        minHeight: "100vh",
         color: "#E5E7E7",
         backgroundColor: "#080808",
-        minHeight: "100vh",
-        p: 2,  // Equivalent to padding: 20px (MUI uses 8px spacing unit)
       }}
     >
-      <Sidebar />
+      {/* Desktop Sidebar */}
+      <Box sx={{ display: { xs: "none", md: "block" } }}>
+        <Sidebar />
+      </Box>
 
+      {/* Mobile Drawer Sidebar */}
+      <MobileSidebar open={mobileOpen} onClose={closeDrawer} />
+
+      {/* Main Content */}
       <Box
         sx={{
           width: "100%",
           maxWidth: { sm: "100%", md: "1700px" },
-          ml: 2, // Add some margin left since sidebar is separate
+          ml: { xs: 0, md: 2 },
+          p: 1,
         }}
       >
-        <Head />
+        {/* Mobile Header */}
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <MobileHeader toggleDrawer={toggleDrawer} />
+        </Box>
 
-        <Typography
-          component="h2"
-          variant="h6"
-          sx={{ mb: 2, color: "#E5E7E7" }}
-        >
+        {/* Desktop Header */}
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          <Head />
+        </Box>
+
+        <Typography variant="h6" sx={{ mb: 2 }}>
           Overview
         </Typography>
 
@@ -60,15 +87,11 @@ const App = () => {
           </Grid>
         </Grid>
 
-        <Typography
-          component="h2"
-          variant="h6"
-          sx={{ mb: 2, color: "#E5E7E7" }}
-        >
+        <Typography variant="h6" sx={{ mb: 2 }}>
           Details
         </Typography>
 
-        <Grid container spacing={2} columns={12}>
+        <Grid container spacing={1} columns={12}>
           <Grid size={{ xs: 12, lg: 9 }}>
             <Datagrid />
           </Grid>

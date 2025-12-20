@@ -1,11 +1,9 @@
 import React from "react";
 import { styled, alpha } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
+import { Box, useMediaQuery, useTheme, Typography } from "@mui/material";
 import InputBase from "@mui/material/InputBase";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import Box from "@mui/material/Box";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
 
 import dayjs from "dayjs";
 import Button from "@mui/material/Button";
@@ -17,6 +15,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import IconButton from "@mui/material/IconButton";
 import Badge, { badgeClasses } from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import MobileHeader from "./MobileHeader";
 
 /* Search container */
 const Search = styled("div")(({ theme }) => ({
@@ -24,7 +23,7 @@ const Search = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
-    cursor:"pointer",
+    cursor: "pointer",
   },
   width: "100%",
   maxWidth: 200,
@@ -62,21 +61,33 @@ const CartBadge = styled(Badge)`
 
 const Head = () => {
   const [value, setValue] = React.useState(dayjs("2023-04-22"));
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+
+  if (isMobile || isTablet) {
+    return <MobileHeader />;
+  }
   return (
     <Box
-      className="paddingss innerWidth"
+      
       sx={{
-        display: "flex",
+        display:"flex",
         alignItems: "center",
         justifyContent: "space-between",
         gap: 2,
-    
+        p:1.5,
       }}
     >
-      <div style={{display:"flex", alignItems:"center", gap:"2px",}}>
-        <Typography variant="body1" sx={{fontSize:"15px", color:"#3b3f63ff"}}>Dashboard</Typography>
-        <ArrowForwardIosIcon  size="small" sx={{fontSize:"12px", }}/>
-        <Typography variant="body1" sx={{ color: 'white', fontWeight: 600 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+        <Typography
+          variant="body1"
+          sx={{ fontSize: "15px", fontweight:400, color: "#a4a7beff" }}
+        >
+          Dashboard
+        </Typography>
+        <ArrowForwardIosIcon size="small" sx={{ fontSize: "12px" }} />
+        <Typography variant="body1" sx={{ color: "white", fontWeight: 600 }}>
           Home
         </Typography>
       </div>
@@ -85,7 +96,6 @@ const Head = () => {
         {/* Search */}
         <Search>
           <SearchIconWrapper>
-            
             <SearchOutlinedIcon />
           </SearchIconWrapper>
           <StyledInputBase
@@ -134,15 +144,13 @@ function ButtonField(props) {
           borderRadius: "10px",
           px: 1.5,
 
-           '&:focus': {
-              color:'#eceff3ff',
-            },
+          "&:focus": {
+            color: "#eceff3ff",
+          },
 
-            '&:hover':{
-              color:'#eceff3ff'
-            },
-
-         
+          "&:hover": {
+            color: "#eceff3ff",
+          },
         }}
       >
         {value ? value.format("MMM DD, YYYY") : "Select date"}

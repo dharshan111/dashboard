@@ -53,7 +53,7 @@ export default function DashboardStats() {
         value="200k"
         percent="+5%"
         percentColor="#dcdfe2ff"
-        percentBg="rgba(59,130,246,0.15)"
+        percentBg="rgba(39, 58, 88, 0.15)"
         graphBg="linear-gradient(to right, #d6d1d19f, transparent)"
         graphColor="grey"
         data={[
