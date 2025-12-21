@@ -2,12 +2,14 @@ import { Box, useMediaQuery, useTheme } from "@mui/material";
 import StatCardSX from "./StatCardSX";
 
 export default function DashboardStats() {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-    const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
   return (
-    <Box display="flex" gap={1} 
-       sx={{
+    <Box
+      display="flex"
+      gap={1}
+      sx={{
         display: "flex",
         gap: isMobile ? 2 : 1,
         flexDirection: isMobile ? "column" : "row",
@@ -15,7 +17,6 @@ export default function DashboardStats() {
         justifyContent: isMobile ? "center" : "space-between",
         alignItems: isMobile ? "stretch" : "center",
       }}
-
     >
       {/* CARD 1 */}
       <StatCardSX
@@ -60,6 +61,7 @@ export default function DashboardStats() {
           615, 228, 306, 10, 312, 119, 514, 15, 228, 306, 610, 312, 119, 514,
         ]}
       />
+      
     </Box>
   );
 }

@@ -46,6 +46,11 @@ const App = () => {
       {/* Mobile Drawer Sidebar */}
       <MobileSidebar open={mobileOpen} onClose={closeDrawer} />
 
+      {/* Mobile Header */}
+      <Box sx={{ display: { xs: "block", md: "none" } }}>
+        <MobileHeader toggleDrawer={toggleDrawer} />
+      </Box>
+
       {/* Main Content */}
       <Box
         sx={{
@@ -55,21 +60,21 @@ const App = () => {
           p: 1,
         }}
       >
-        {/* Mobile Header */}
-        <Box sx={{ display: { xs: "block", md: "none" } }}>
-          <MobileHeader toggleDrawer={toggleDrawer} />
-        </Box>
-
         {/* Desktop Header */}
         <Box sx={{ display: { xs: "none", md: "block" } }}>
           <Head />
         </Box>
 
-        <Typography variant="h6" sx={{ mb: 2 }}>
+        <Typography
+          variant="h6"
+          sx={{
+            mt: { xs: 8, sm: 8, md: 8, lg: 0 }, // Desktop (lg) has 0 margin-top
+          }}
+        >
           Overview
         </Typography>
 
-        <Grid container spacing={1} columns={12} sx={{ mb: 2 }}>
+        <Grid container spacing={1} columns={12} sx={{mb:1,}}>
           <Grid size={{ xs: 12, sm: 8, lg: 9 }}>
             <DashboardStats />
           </Grid>

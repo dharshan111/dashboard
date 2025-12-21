@@ -70,19 +70,18 @@ const Head = () => {
   }
   return (
     <Box
-      
       sx={{
-        display:"flex",
+        display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         gap: 2,
-        p:1.5,
+        p: 1.5,
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
         <Typography
           variant="body1"
-          sx={{ fontSize: "15px", fontweight:400, color: "#a4a7beff" }}
+          sx={{ fontSize: "15px", fontweight: 400, color: "#a4a7beff" }}
         >
           Dashboard
         </Typography>
@@ -96,13 +95,14 @@ const Head = () => {
         {/* Search */}
         <Search>
           <SearchIconWrapper>
-            <SearchOutlinedIcon />
+            <SearchOutlinedIcon sx={{ color: "#fff" }} />
           </SearchIconWrapper>
           <StyledInputBase
             placeholder="Search…"
             inputProps={{ "aria-label": "search" }}
             sx={{
               borderRadius: "10px",
+              border: "none",
               position: "relative",
               zIndex: 1,
             }}
@@ -118,6 +118,7 @@ const Head = () => {
             slotProps={{
               field: {
                 value,
+                
               },
             }}
           />
