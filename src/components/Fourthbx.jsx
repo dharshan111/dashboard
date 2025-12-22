@@ -18,7 +18,7 @@ export default function Fourthbx() {
           height:200,
           display:"flex",
           flexDirection:"column",
-          gap:"6.5px",
+          gap:"2.5px",
         }}
       >
         {/* TITLE */}
