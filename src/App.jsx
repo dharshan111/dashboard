@@ -31,6 +31,7 @@ const App = () => {
 
   return (
     <Box
+      className="innerWidth"
       sx={{
         display: "flex",
         minHeight: "100vh",
@@ -74,16 +75,17 @@ const App = () => {
           Overview
         </Typography>
 
-        <Grid container spacing={1} columns={12} sx={{mb:1,}}>
-          <Grid size={{ xs: 12, sm: 8, lg: 9 }}>
+        <Grid container spacing={1} columns={12} sx={{ mb: 1 }}>
+          <Grid size={{ xs: 12, sm: 12, md: 12, lg: 9 }}>
             <DashboardStats />
           </Grid>
-          <Grid size={{ xs: 12, sm: 4, lg: 3 }}>
+
+          <Grid size={{ xs: 12, sm: 12, md: 12, lg: 3 }}>
             <Fourthbx />
           </Grid>
         </Grid>
 
-        <Grid container spacing={2} columns={12} sx={{ mb: 2 }}>
+        <Grid container spacing={1} columns={12} sx={{ mb: 2 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Barchart2 />
           </Grid>

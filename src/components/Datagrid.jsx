@@ -87,7 +87,6 @@ export default function CustomizedDataGrid() {
             },
           },
 
-
           /* Checkbox style */
           "& .MuiCheckbox-root": {
             padding: "4px",
@@ -101,10 +100,8 @@ export default function CustomizedDataGrid() {
           "& .MuiCheckbox-root .MuiSvgIcon-root": {
             fontSize: 20,
             borderRadius: "5px",
-            color:"grey",
+            color: "grey",
           },
-
-          
 
           /* Checked state */
           "& .MuiCheckbox-root.Mui-checked": {
@@ -122,19 +119,19 @@ export default function CustomizedDataGrid() {
             display: "flex",
             gap: "10px",
             padding: "10px",
-            
+
             "& .MuiButtonBase-root": {
               border: "1px solid #34445f",
               fontSize: "12px",
               borderRadius: "6px",
               padding: "4px",
-              color:"#b1b0b0ff",
+              color: "#b1b0b0ff",
             },
           },
           "& .MuiTablePagination-input": {
             color: "#fff",
-            border:"1px solid #34445f",
-            borderRadius:"10px",
+            border: "1px solid #34445f",
+            borderRadius: "10px",
           },
 
           "& .MuiTablePagination-selectLabel": {
@@ -148,6 +145,7 @@ export default function CustomizedDataGrid() {
           // Row styling
           "& .MuiDataGrid-row": {
             backgroundColor: "rgba(30, 41, 59, 0.1)",
+            borderBottom:"#000",
 
             "&:hover": {
               backgroundColor: "#0f172a",
@@ -180,13 +178,29 @@ export default function CustomizedDataGrid() {
             backgroundColor: "#0f172a",
           },
 
-          "& .MuiDataGrid-iconSeparator":{
+          "& .MuiDataGrid-iconSeparator": {
             display: "none",
           },
 
+          // menu style
+          "& .MuiDataGrid-menuList": {
+            outline: 0,
+            color: "#fff",
+            background: "#080808",
+          },
+
+          "& .MuiListItemIcon-root": {
+            color: " #fff",
+            },
+
+          "& .MuiSvgIcon-root": {
+            color: "#868282ff",
+          },
+
+          "&. .MuiDataGrid-sortButton": {
+            background: "transparent",
+          },
         }}
-
-
         checkboxSelection
         rows={rows}
         columns={columns}

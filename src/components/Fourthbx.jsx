@@ -6,6 +6,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 export default function Fourthbx() {
 
 
+
   return (
     <>
       <Box
@@ -17,7 +18,7 @@ export default function Fourthbx() {
           height:200,
           display:"flex",
           flexDirection:"column",
-          gap:"2.5px",
+          gap:"6.5px",
         }}
       >
         {/* TITLE */}

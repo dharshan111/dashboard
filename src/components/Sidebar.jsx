@@ -55,7 +55,7 @@ export default function SideMenu() {
           display: 'flex',
           p: 2,
           backgroundColor: '#0f172a',
-          borderBottom: '1px solid #1e293b',
+          border: '1px solid #1e293b',
         }}
       >
         <SelectContent />

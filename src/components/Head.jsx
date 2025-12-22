@@ -20,8 +20,10 @@ import MobileHeader from "./MobileHeader";
 /* Search container */
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  border:"1px solid #1e293b",
+  borderRadius:"10px",
+  backgroundColor: "transparent",
+
   "&:hover": {
     cursor: "pointer",
   },
@@ -148,7 +150,6 @@ function ButtonField(props) {
           "&:focus": {
             color: "#eceff3ff",
           },
-
           "&:hover": {
             color: "#eceff3ff",
           },

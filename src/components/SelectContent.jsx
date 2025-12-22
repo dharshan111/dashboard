@@ -47,7 +47,7 @@ export default function SelectContent() {
         width: 215,
         borderRadius: "10px",
         backgroundColor: "#0C1017", 
-        border:"1px solid grey",
+        border:"1px solid #1e293b",
         color: "#fff", 
         "& .MuiListItemText-root": {
           "& .MuiListItemText-secondary": {
@@ -87,11 +87,14 @@ export default function SelectContent() {
               color: "#fff", 
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                borderRadius:"10px",
               },
               "&.Mui-selected": {
                 backgroundColor: "rgba(255, 255, 255, 0.15)", 
+                borderRadius:"10px",
                 "&:hover": {
                   backgroundColor: "rgba(255, 255, 255, 0.2)",
+                  
                 },
               },
             },
