@@ -16,6 +16,7 @@ export default function Fourthbx() {
           borderRadius: 2,
           border: "1px solid #1e293b",
           height:200,
+          background:"#0B0E14",
           display:"flex",
           flexDirection:"column",
           gap:"2.5px",

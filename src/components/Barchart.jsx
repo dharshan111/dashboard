@@ -51,6 +51,7 @@ export default function StackedBarChart() {
               label: "Conversions",
               stack: "total",
               color: "#5EAFFF",
+            
             },
           ]}
           xAxis={[{ 
@@ -92,8 +93,12 @@ export default function StackedBarChart() {
             '& .MuiBarElement-root': {
               width: 35,
               padding: "20px",
-              borderRadius: "20px",
+              
             },
+
+             '& .MuiBarElement-root[data-series-id="conversions"]': {
+                  borderRadius: '10px 10px 0 0',
+                },
 
             '& .MuiChartsTooltip-root': {
               backgroundColor: '#1e293b',
