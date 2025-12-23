@@ -34,6 +34,7 @@ export default function OptionsMenu() {
           color: '#94a3b8',
           border:"1px solid #1e293b",
           borderRadius:"10px",
+          padding:"6px",
           '&:hover': {
             backgroundColor: 'rgba(255, 255, 255, 0.1)',
             color: '#ffffff',
@@ -52,7 +53,7 @@ export default function OptionsMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         sx={{
           [`& .${listClasses.root}`]: {
-            padding: '3px',
+            padding: '2px',
             background: '#000',
             borderRadius: '10px',
             border: '1px solid black',

@@ -96,7 +96,7 @@ export default function SideMenu() {
       <Stack
         direction="row"
         sx={{
-          p: 2.5,
+          p: 1.5,
           gap: 1.5,
           alignItems: 'center',
           backgroundColor: '#0C1017',

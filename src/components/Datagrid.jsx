@@ -36,8 +36,7 @@ export default function CustomizedDataGrid() {
     <ScrollContainer>
       <DataGrid
         sx={{
-          border: "1px solid #1e293b",
-          
+          border: "1px solid #1e293b",          
           borderRadius: "10px",
           color: "#E5E7E7",
           backgroundColor: "#080808",
@@ -143,7 +142,9 @@ export default function CustomizedDataGrid() {
           // Header styling
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: "#0f1011ff",
-                        
+              "& .MuiDataGrid-sortButton" :{
+              backgroundColor:"transparent",
+          },                        
           },
 
           // Footer styling
@@ -176,8 +177,7 @@ export default function CustomizedDataGrid() {
             background:"#000",
             color:"#fff",
           },
-
-          
+      
 
         }}
         checkboxSelection
