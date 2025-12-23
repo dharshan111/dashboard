@@ -20,10 +20,9 @@ import MobileHeader from "./MobileHeader";
 /* Search container */
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  border:"1px solid #1e293b",
-  borderRadius:"10px",
+  border: "1px solid #1e293b",
+  borderRadius: "10px",
   backgroundColor: "transparent",
-
   "&:hover": {
     cursor: "pointer",
   },
@@ -61,8 +60,57 @@ const CartBadge = styled(Badge)`
   }
 `;
 
+// Custom ButtonField component
+const ButtonField = React.forwardRef(function ButtonField(props, ref) {
+  const {
+    // These props come from the DatePicker slotProps
+    id,
+    disabled,
+    onClick,
+    value,
+    format,
+    // Other props
+    ...other
+  } = props;
+
+  const formatDate = (dateValue, dateFormat) => {
+    if (!dateValue) return "Select date";
+    return dayjs(dateValue).format(dateFormat || "MMM DD, YYYY");
+  };
+
+  return (
+    <Button
+      id={id}
+      disabled={disabled}
+      ref={ref}
+      onClick={onClick}
+      startIcon={<CalendarTodayIcon fontSize="small" />}
+      sx={{
+        textTransform: "none",
+        border: "1px solid #1e293b",
+        color: "#f3ebebff",
+        fontSize: "14px",
+        borderRadius: "10px",
+        px: 1.5,
+        minWidth: "fit-content",
+        "&:focus": {
+          color: "#eceff3ff",
+        },
+        "&:hover": {
+          color: "#eceff3ff",
+          backgroundColor: "transparent",
+        },
+      }}
+      {...other}
+    >
+      {formatDate(value, format)}
+    </Button>
+  );
+});
+
 const Head = () => {
   const [value, setValue] = React.useState(dayjs("2023-04-22"));
+  const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
@@ -70,6 +118,7 @@ const Head = () => {
   if (isMobile || isTablet) {
     return <MobileHeader />;
   }
+
   return (
     <Box
       sx={{
@@ -83,7 +132,7 @@ const Head = () => {
       <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
         <Typography
           variant="body1"
-          sx={{ fontSize: "15px", fontweight: 400, color: "#a4a7beff" }}
+          sx={{ fontSize: "15px", fontWeight: 400, color: "#a4a7beff" }}
         >
           Dashboard
         </Typography>
@@ -93,7 +142,7 @@ const Head = () => {
         </Typography>
       </div>
 
-      <div style={{ display: "flex", gap: "5px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         {/* Search */}
         <Search>
           <SearchIconWrapper>
@@ -110,80 +159,188 @@ const Head = () => {
             }}
           />
         </Search>
+
+        {/* DatePicker */}
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             value={value}
             onChange={(newValue) => setValue(newValue)}
+            open={open}
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
             slots={{
               field: ButtonField,
             }}
             slotProps={{
               field: {
-                value,
-                
+                onClick: () => setOpen(!open),
+                value: value,
+                format: "MMM DD, YYYY",
+              },
+              popper: {
+                placement: "bottom-end",
+                modifiers: [
+                  {
+                    name: "offset",
+                    options: {
+                      offset: [0, 8],
+                    },
+                  },
+                ],
+                sx: {
+                  "& .MuiPaper-root": {
+                    backgroundColor: "#000",
+                    color: "#fff",
+                    position:"relative",
+                    top:73,
+                    left:1000,
+                    border:"1px solid #1e293b",
+                    borderRadius:"15px",
+                    boxShadow:" rgba(201, 195, 195, 0.1) 0px 10px 10px",
+                  },
+                  "& .MuiDayCalendar-header": {
+                    backgroundColor: "#000",
+                    "& .MuiDayCalendar-weekDayLabel": {
+                      color: "#fff",
+                    },
+                  },
+                  "& .MuiDayCalendar-monthContainer": {
+                    backgroundColor: "#000",
+                    "& .MuiDayCalendar-weekContainer": {
+                      "& .MuiButtonBase-root": {
+                        color: "#fff",
+                        "&:hover": {
+                          backgroundColor: "#333",
+                        },
+                        "&.Mui-selected": {
+                          backgroundColor: "#1976d2",
+                          "&:hover": {
+                            backgroundColor: "#1565c0",
+                          },
+                        },
+                        "&.MuiPickersDay-today": {
+                          borderColor: "#fff",
+                        },
+                      },
+                    },
+                  },
+                  "& .MuiMonthCalendar-root": {
+                    backgroundColor: "#000",
+                    "& .MuiButtonBase-root": {
+                      color: "#fff",
+                      "&:hover": {
+                        backgroundColor: "#333",
+                      },
+                      "&.Mui-selected": {
+                        backgroundColor: "#1976d2",
+                        
+                        "&:hover": {
+                          backgroundColor: "#1565c0",
+                        },
+                      },
+                    },
+                  },
+                  "& .MuiYearCalendar-root": {
+                    backgroundColor: "#000",
+                    
+                    "& .MuiButtonBase-root": {
+                      color: "#fff",
+                      "&:hover": {
+                        backgroundColor: "#333",
+                      },
+                      "&.Mui-selected": {
+                        backgroundColor: "#1976d2",
+                        "&:hover": {
+                          backgroundColor: "#1565c0",
+                        },
+                      },
+                    },
+                  },
+                  "& .MuiPickersCalendarHeader-root": {
+                    backgroundColor: "#000",
+                    "& .MuiPickersCalendarHeader-label": {
+                      color: "#fff",
+                    },
+                    "& .MuiIconButton-root": {
+                      color: "#fff",
+                      "&:hover": {
+                        backgroundColor: "#333",
+                      },
+                    },
+                  },
+                  "& .MuiPickersArrowSwitcher-root": {
+                    "& .MuiIconButton-root": {
+                      color: "#fff",
+                      "&:hover": {
+                        backgroundColor: "#333",
+                      },
+                    },
+                  },
+                },
+              },
+              nextIconButton: {
+                size: "small",
+                sx: {
+                  color: "#fff",
+                  borderRadius:2,
+                  border:"1px solid grey",
+                  "&:hover": {
+                    backgroundColor: "#333",
+                  },
+                },
+              },
+              previousIconButton: {
+                size: "small",
+                sx: {
+                  color: "#fff",
+                  borderRadius:2,
+                  border:"1px solid grey",
+                  "&:hover": {
+                    backgroundColor: "#333",
+                  },
+                },
+              },
+              textField: {
+                variant: "outlined",
+              },
+            }}
+            views={["day", "month", "year"]}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                border: "none",
               },
             }}
           />
         </LocalizationProvider>
+
+        {/* Notification Icon */}
+        <IconButton
+          sx={{
+            position: "relative",
+            textTransform: "none",
+            border: "1px solid #1e293b",
+            color: "#f3ebebff",
+            fontSize: "10px",
+            borderRadius: "10px",
+            px: 1.3,
+          }}
+        >
+          <NotificationsIcon fontSize="small" />
+          <CartBadge
+            variant="dot"
+            sx={{
+              position: "absolute",
+              top: 15,
+              right: 10,
+              "& .MuiBadge-badge": {
+                backgroundColor: "#e53935",
+              },
+            }}
+          />
+        </IconButton>
       </div>
     </Box>
   );
 };
-
-function ButtonField(props) {
-  const { value, inputRef, inputProps } = props;
-
-  return (
-    <>
-      <Button
-        ref={inputRef}
-        onClick={inputProps?.onClick}
-        startIcon={<CalendarTodayIcon />}
-        sx={{
-          textTransform: "none",
-          border: "1px solid #1e293b",
-          color: "#f3ebebff",
-          fontSize: "14px",
-          borderRadius: "10px",
-          px: 1.5,
-
-          "&:focus": {
-            color: "#eceff3ff",
-          },
-          "&:hover": {
-            color: "#eceff3ff",
-          },
-        }}
-      >
-        {value ? value.format("MMM DD, YYYY") : "Select date"}
-      </Button>
-
-      <IconButton
-        sx={{
-          position: "relative",
-          textTransform: "none",
-          border: "1px solid #1e293b",
-          color: "#f3ebebff",
-          fontSize: "10px",
-          borderRadius: "10px",
-          px: 1.3,
-        }}
-      >
-        <NotificationsIcon fontSize="small" />
-        <CartBadge
-          variant="dot"
-          sx={{
-            position: "absolute",
-            top: 15,
-            right: 10,
-            "& .MuiBadge-badge": {
-              backgroundColor: "#e53935",
-            },
-          }}
-        />
-      </IconButton>
-    </>
-  );
-}
 
 export default Head;
