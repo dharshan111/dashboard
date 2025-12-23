@@ -25,7 +25,7 @@ export default function StackedBarChart() {
           title="Page views and downloads"
           value="1.3M"
           percent="-8%"
-          percentColor="#a59595ff"
+          percentColor="#ef4444"
           subtitle="Page views and downloads for the last 6 months"
         />
 
@@ -34,13 +34,11 @@ export default function StackedBarChart() {
           height={270}
           margin={{ top: 0, bottom: 15, left: 5, right: 5 }}
           series={[
-            
             {
               data: pData,
               label: "page view",
               stack: "total",
               color: "#1A6ABB",
-
               
             },
             {
@@ -103,11 +101,14 @@ export default function StackedBarChart() {
               padding: "20px",
             },
 
-          
+            '& .MuiBarElement-root[data-series-id="conversions"]': {
+              borderRadius: "10px 10px 0 0",
+            },
 
             "& .MuiChartsTooltip-root": {
               backgroundColor: "#1e293b",
               fill: "#fff !important",
+              borderRadius: "8px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
               "& .MuiChartsTooltip-label": {
                 fill: "#fff !important",

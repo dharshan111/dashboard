@@ -24,10 +24,12 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
   "&::-webkit-scrollbar": {
     height: "8px",
   },
+
   "&::-webkit-scrollbar-track": {
     background: "#1e293b",
     borderRadius: "4px",
   },
+
   "&::-webkit-scrollbar-thumb": {
     background: "#475569",
     borderRadius: "4px",
@@ -55,6 +57,7 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
   "&:not(:hover)::after": {
     opacity: "0.3",
   },
+  
 }));
 
 export default function CustomizedDataGrid() {
