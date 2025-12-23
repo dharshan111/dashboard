@@ -93,9 +93,7 @@ export default function CustomizedDataGrid() {
             borderRadius: "10px",
           },
 
-          "& .MuiDataGrid-virtualScrollerRenderZone": {
-            borderBottom: "1px solid #1e293b",
-          },
+         
 
           "& .MuiCheckbox-root .MuiSvgIcon-root": {
             fontSize: 20,
@@ -145,7 +143,7 @@ export default function CustomizedDataGrid() {
           // Row styling
           "& .MuiDataGrid-row": {
             backgroundColor: "rgba(30, 41, 59, 0.1)",
-            borderBottom:"#000",
+            
 
             "&:hover": {
               backgroundColor: "#0f172a",
@@ -162,14 +160,14 @@ export default function CustomizedDataGrid() {
 
           // Cell styling
           "& .MuiDataGrid-cell": {
-            borderBottom: "1px solid #334155",
+            border: "none",
+            borderBottom:"1px solid #1e293b",
             color: "#e2e8f0",
           },
 
           // Header styling
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: "#0f1011ff",
-            borderBottom: "1px solid #1e293b",
           },
 
           // Footer styling
@@ -190,16 +188,22 @@ export default function CustomizedDataGrid() {
           },
 
           "& .MuiListItemIcon-root": {
-            color: " #fff",
+            fill: "#fff",
             },
 
           "& .MuiSvgIcon-root": {
             color: "#868282ff",
+          },          
+
+
+
+          "& .MuiPaper-root":{
+            background:"#000",
+            color:"#fff",
           },
 
-          "&. .MuiDataGrid-sortButton": {
-            background: "transparent",
-          },
+          
+
         }}
         checkboxSelection
         rows={rows}

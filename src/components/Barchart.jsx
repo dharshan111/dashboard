@@ -18,27 +18,30 @@ export default function StackedBarChart() {
           color: "#fff",
           borderRadius: "10px",
           border: "1px solid #1e293b",
-          backgroundColor: '#080808',
+          backgroundColor: "#080808",
         }}
       >
         <StatHeader
           title="Page views and downloads"
           value="1.3M"
           percent="-8%"
-          percentColor="#ef4444"
+          percentColor="#a59595ff"
           subtitle="Page views and downloads for the last 6 months"
         />
 
         <BarChart
+          
           height={270}
-          // width={500}
           margin={{ top: 0, bottom: 15, left: 5, right: 5 }}
           series={[
+            
             {
               data: pData,
               label: "page view",
               stack: "total",
               color: "#1A6ABB",
+
+              
             },
             {
               data: uData,
@@ -51,82 +54,85 @@ export default function StackedBarChart() {
               label: "Conversions",
               stack: "total",
               color: "#5EAFFF",
-            
-            },
-          ]}
-          xAxis={[{ 
-            data: xLabels,
-            tickLabelStyle: {
-              fill: '#fff !important',
-              fontSize: '12px',
-            }
-          }]}
-          yAxis={[{ 
-            width: 50,
-            tickLabelStyle: {
-              fill: '#fff',
-              fontSize: '12px',
-            }
-          }]}
-          grid={{ 
-            vertical: false, 
-            horizontal: true, 
-          }}
-          sx={{
-            
-            '& text': {
-              fill: '#fff',
-            },
-            
-            '& .MuiChartsGrid-line': {
-              stroke: '#444', 
-              strokeWidth: 1,
-              strokeDasharray: '3 3', 
-            },
-
-            '& .MuiChartsGrid-horizontal': {
-              stroke: '#444',
-              strokeWidth: 1,
-              strokeDasharray: '3 3',
-            },
-            
-            '& .MuiBarElement-root': {
-              width: 35,
-              padding: "20px",
               
             },
+            
+            
+          ]}
+          xAxis={[
+            {
+              data: xLabels,
+              tickLabelStyle: {
+                fill: "#fff !important",
+                fontSize: "12px",
+              },
+            },
+          ]}
+          yAxis={[
+            {
+              width: 50,
+              tickLabelStyle: {
+                fill: "#fff",
+                fontSize: "12px",
+              },
+            },
+          ]}
+          grid={{
+            vertical: false,
+            horizontal: true,
+          }}
+          sx={{
+            "& text": {
+              fill: "#fff",
+            },
 
-             '& .MuiBarElement-root[data-series-id="conversions"]': {
-                  borderRadius: '10px 10px 0 0',
-                },
+            "& .MuiChartsGrid-line": {
+              stroke: "#444",
+              strokeWidth: 1,
+              strokeDasharray: "3 3",
+            },
 
-            '& .MuiChartsTooltip-root': {
-              backgroundColor: '#1e293b',
-              fill: '#fff !important',
-              borderRadius: "8px",
+            "& .MuiChartsGrid-horizontal": {
+              stroke: "#444",
+              strokeWidth: 1,
+              strokeDasharray: "3 3",
+            },
+
+            "& .MuiBarElement-root": {
+              width: 35,
+              padding: "20px",
+            },
+
+          
+
+            "& .MuiChartsTooltip-root": {
+              backgroundColor: "#1e293b",
+              fill: "#fff !important",
               boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-              '& .MuiChartsTooltip-label': {
-                fill: '#fff !important',
+              "& .MuiChartsTooltip-label": {
+                fill: "#fff !important",
               },
-              '& .MuiChartsTooltip-value': {
-                fill: '#fff !important',
+
+              "& .MuiChartsTooltip-value": {
+                fill: "#fff !important",
               },
             },
 
-            '& .MuiChartsAxis-tickLabel': {
-              fill: '#fff !important',
+            "& .MuiChartsAxis-tickLabel": {
+              fill: "#fff !important",
+             
             },
 
-            '& .MuiChartsAxis-line': {
-              stroke: '#fff !important',
+            "& .MuiChartsAxis-line": {
+              stroke: "#fff !important",
             },
 
-            '& .MuiChartsAxis-tick': {
-              stroke: '#fff !important',
+            "& .MuiChartsAxis-tick": {
+              stroke: "#fff !important",
             },
 
             /* Hide legend */
-            '& .MuiChartsLegend-root': {
+            "& .MuiChartsLegend-root": {
               display: "none",
             },
           }}
