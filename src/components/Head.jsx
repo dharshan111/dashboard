@@ -198,10 +198,13 @@ const Head = () => {
                     borderRadius:"15px",
                     boxShadow:" rgba(201, 195, 195, 0.1) 0px 10px 10px",
                   },
+
                   "& .MuiDayCalendar-header": {
                     backgroundColor: "#000",
+                    
                     "& .MuiDayCalendar-weekDayLabel": {
                       color: "#fff",
+                      
                     },
                   },
                   "& .MuiDayCalendar-monthContainer": {
@@ -209,6 +212,7 @@ const Head = () => {
                     "& .MuiDayCalendar-weekContainer": {
                       "& .MuiButtonBase-root": {
                         color: "#fff",
+                        
                         "&:hover": {
                           backgroundColor: "#333",
                         },
@@ -220,14 +224,16 @@ const Head = () => {
                         },
                         "&.MuiPickersDay-today": {
                           borderColor: "#fff",
+                          
                         },
                       },
                     },
                   },
                   "& .MuiMonthCalendar-root": {
                     backgroundColor: "#000",
+                    
                     "& .MuiButtonBase-root": {
-                      color: "#fff",
+                      color:"#fff",
                       "&:hover": {
                         backgroundColor: "#333",
                       },
@@ -258,11 +264,15 @@ const Head = () => {
                   },
                   "& .MuiPickersCalendarHeader-root": {
                     backgroundColor: "#000",
+                    
                     "& .MuiPickersCalendarHeader-label": {
                       color: "#fff",
+                      
                     },
                     "& .MuiIconButton-root": {
                       color: "#fff",
+                      borderRadius:"5px",
+                      background:"#0d1624ff",
                       "&:hover": {
                         backgroundColor: "#333",
                       },
@@ -282,8 +292,9 @@ const Head = () => {
                 size: "small",
                 sx: {
                   color: "#fff",
-                  borderRadius:2,
-                  border:"1px solid grey",
+                  p:1,
+                  borderRadius:"5px",
+                  border:"1px solid #1e293b",
                   "&:hover": {
                     backgroundColor: "#333",
                   },
@@ -293,8 +304,9 @@ const Head = () => {
                 size: "small",
                 sx: {
                   color: "#fff",
-                  borderRadius:2,
-                  border:"1px solid grey",
+                  borderRadius:"5px",
+                  p:1,
+                  border:"1px solid #1e293b",
                   "&:hover": {
                     backgroundColor: "#333",
                   },

@@ -119,7 +119,7 @@ export default function ChartUserByCountry() {
         width: "100%",
         borderRadius: "10px",
         flexGrow: 1,
-        border: "1px solid #333",
+        border:"1px solid #1e293b",
         backgroundColor: '#080808',
       }}
     >

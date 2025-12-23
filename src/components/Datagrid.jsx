@@ -3,7 +3,6 @@ import { columns, rows } from "./gridData";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 
-
 const ScrollContainer = styled(Box)(({ theme }) => ({
   width: "100%",
   maxWidth: "800px",
@@ -13,7 +12,7 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
   // Custom scrollbar
   "&::-webkit-scrollbar": {
     height: "8px",
-    background:"grey",
+    background: "grey",
   },
 
   "&::-webkit-scrollbar-track": {
@@ -28,7 +27,6 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
       background: "#64748b",
     },
   },
-
 }));
 
 export default function CustomizedDataGrid() {
@@ -36,7 +34,7 @@ export default function CustomizedDataGrid() {
     <ScrollContainer>
       <DataGrid
         sx={{
-          border: "1px solid #1e293b",          
+          border: "1px solid #1e293b",
           borderRadius: "10px",
           color: "#E5E7E7",
           backgroundColor: "#080808",
@@ -66,8 +64,6 @@ export default function CustomizedDataGrid() {
             padding: "4px",
             borderRadius: "10px",
           },
-
-         
 
           "& .MuiCheckbox-root .MuiSvgIcon-root": {
             fontSize: 20,
@@ -117,7 +113,6 @@ export default function CustomizedDataGrid() {
           // Row styling
           "& .MuiDataGrid-row": {
             backgroundColor: "rgba(30, 41, 59, 0.1)",
-            
 
             "&:hover": {
               backgroundColor: "#0f172a",
@@ -135,16 +130,16 @@ export default function CustomizedDataGrid() {
           // Cell styling
           "& .MuiDataGrid-cell": {
             border: "none",
-            borderBottom:"1px solid #1e293b",
+            borderBottom: "1px solid #1e293b",
             color: "#e2e8f0",
           },
 
           // Header styling
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: "#0f1011ff",
-              "& .MuiDataGrid-sortButton" :{
-              backgroundColor:"transparent",
-          },                        
+            "& .MuiDataGrid-sortButton": {
+              backgroundColor: "transparent",
+            },
           },
 
           // Footer styling
@@ -158,27 +153,20 @@ export default function CustomizedDataGrid() {
           },
 
           // menu style
-          "& .MuiDataGrid-menuList": {
-            outline: 0,
-            color: "#fff",
-            background: "#080808",
-          },
 
-          "& .MuiListItemIcon-root": {
-            fill: "#fff",
+            "& .MuiListItemIcon-root": {
+              fill: "#fff",
             },
-
+          
           "& .MuiSvgIcon-root": {
             color: "#868282ff",
-            
-          },          
-
-          "& .MuiPaper-root":{
-            background:"#000",
-            color:"#fff",
           },
-      
 
+          "& .MuiPaper-root": {
+            background: "#000",
+            color: "#fff",
+          },
+          
         }}
         checkboxSelection
         rows={rows}
