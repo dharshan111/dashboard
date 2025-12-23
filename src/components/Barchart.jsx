@@ -30,8 +30,8 @@ export default function StackedBarChart() {
         />
 
         <BarChart
-          
           height={270}
+          
           margin={{ top: 0, bottom: 15, left: 5, right: 5 }}
           series={[
             {
