@@ -39,22 +39,21 @@ export default function StackedBarChart() {
               label: "page view",
               stack: "total",
               color: "#1A6ABB",
-              
             },
+
             {
               data: uData,
               label: "Downloads",
               stack: "total",
               color: "#1C88F3",
             },
+
             {
               data: sData,
               label: "Conversions",
               stack: "total",
               color: "#5EAFFF",
-              
             },
-            
             
           ]}
           xAxis={[

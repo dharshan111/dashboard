@@ -1,19 +1,9 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { columns, rows } from "./gridData";
 import Box from "@mui/material/Box";
-import { keyframes, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
-// Create scroll animation
-const scrollAnimation = keyframes`
-  0% {
-    background-position: -100% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-`;
 
-// Styled container with scroll animation
 const ScrollContainer = styled(Box)(({ theme }) => ({
   width: "100%",
   maxWidth: "800px",
@@ -23,10 +13,11 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
   // Custom scrollbar
   "&::-webkit-scrollbar": {
     height: "8px",
+    background:"grey",
   },
 
   "&::-webkit-scrollbar-track": {
-    background: "#1e293b",
+    background: "grey",
     borderRadius: "4px",
   },
 
@@ -38,26 +29,6 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
     },
   },
 
-  // Scroll animation indicator
-  "&::after": {
-    content: '""',
-    position: "absolute",
-    bottom: "0",
-    left: "0",
-    right: "0",
-    height: "3px",
-    background: "linear-gradient(90deg, transparent, #3b82f6, transparent)",
-    backgroundSize: "200% 100%",
-    animation: `${scrollAnimation} 2s linear infinite`,
-    opacity: "0.7",
-    pointerEvents: "none",
-  },
-
-  // Hide animation when not scrolling
-  "&:not(:hover)::after": {
-    opacity: "0.3",
-  },
-  
 }));
 
 export default function CustomizedDataGrid() {
@@ -66,6 +37,7 @@ export default function CustomizedDataGrid() {
       <DataGrid
         sx={{
           border: "1px solid #1e293b",
+          
           borderRadius: "10px",
           color: "#E5E7E7",
           backgroundColor: "#080808",
@@ -171,12 +143,13 @@ export default function CustomizedDataGrid() {
           // Header styling
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: "#0f1011ff",
+                        
           },
 
           // Footer styling
           "& .MuiDataGrid-footerContainer": {
             borderTop: "1px solid #1e293b",
-            backgroundColor: "#0f172a",
+            backgroundColor: "#0f1011ff",
           },
 
           "& .MuiDataGrid-iconSeparator": {
@@ -196,9 +169,8 @@ export default function CustomizedDataGrid() {
 
           "& .MuiSvgIcon-root": {
             color: "#868282ff",
+            
           },          
-
-
 
           "& .MuiPaper-root":{
             background:"#000",

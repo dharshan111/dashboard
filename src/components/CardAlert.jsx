@@ -6,7 +6,7 @@ import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 
 export default function CardAlert() {
   return (
-    <Card variant="outlined" sx={{ m: 1.5, flexShrink: 0, borderRadius:"15px", border:"1px solid #1e293b", background:"#101111ff", }}>
+    <Card variant="outlined" sx={{ flexShrink: 0, borderRadius:"15px", border:"1px solid #1e293b", background:"#090D12", }}>
       <CardContent>
         <AutoAwesomeRoundedIcon fontSize="small"
           sx={{

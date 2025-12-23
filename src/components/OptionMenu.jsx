@@ -12,7 +12,7 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 
 const MenuItem = styled(MuiMenuItem)({
-  margin: '2px 0',
+  margin: '0',
 });
 
 export default function OptionsMenu() {
@@ -52,7 +52,7 @@ export default function OptionsMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         sx={{
           [`& .${listClasses.root}`]: {
-            padding: '4px',
+            padding: '3px',
             background: '#000',
             borderRadius: '10px',
             border: '1px solid black',
@@ -78,8 +78,8 @@ export default function OptionsMenu() {
           sx={{ 
             color: '#e2e8f0',
             '&:hover': { 
-              backgroundColor: '#334155',
-              borderRadius: '15px',
+              backgroundColor: '#424549ff',
+              borderRadius: '10px',
             }
           }}
         >
@@ -90,8 +90,8 @@ export default function OptionsMenu() {
           sx={{ 
             color: '#e2e8f0',
             '&:hover': { 
-              backgroundColor: '#334155',
-              borderRadius: '15px',
+              backgroundColor: '#424549ff',
+              borderRadius: '10px',
             }
           }}
         >
@@ -103,8 +103,8 @@ export default function OptionsMenu() {
           sx={{ 
             color: '#e2e8f0',
             '&:hover': { 
-              backgroundColor: '#334155',
-              borderRadius: '15px',
+              backgroundColor: '#424549ff',
+              borderRadius: '10px',
             }
           }}
         >
@@ -115,8 +115,8 @@ export default function OptionsMenu() {
           sx={{ 
             color: '#e2e8f0',
             '&:hover': { 
-              backgroundColor: '#334155',
-              borderRadius: '15px',
+              backgroundColor: '#424549ff',
+              borderRadius: '10px',
             }
           }}
         >
@@ -128,8 +128,8 @@ export default function OptionsMenu() {
           sx={{
             color: '#e2e8f0',
             '&:hover': { 
-              backgroundColor: '#334155',
-              borderRadius: '15px',
+              backgroundColor: '#424549ff',
+              borderRadius: '10px',
             },
             [`& .${listItemIconClasses.root}`]: {
               ml: 'auto',

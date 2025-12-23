@@ -16,9 +16,9 @@ import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
 const Avatar = styled(MuiAvatar)(({ theme }) => ({
   width: 28,
   height: 28,
-  backgroundColor: (theme.vars || theme).palette.background.paper,
-  color: (theme.vars || theme).palette.text.secondary,
-  border: `1px solid ${(theme.vars || theme).palette.divider}`,
+  backgroundColor: "transparent",
+  color: "#fff",
+  border: `1px solid #1e293b`,
 }));
 
 const ListItemAvatar = styled(MuiListItemAvatar)({
@@ -92,7 +92,7 @@ export default function SelectContent() {
               "&.Mui-selected": {
                 backgroundColor: "rgba(255, 255, 255, 0.15)", 
                 borderRadius:"10px",
-                border:"2px solid blue",
+                border:"2px solid #4d5decff",
                 "&:hover": {
                   backgroundColor: "rgba(255, 255, 255, 0.2)",
                   

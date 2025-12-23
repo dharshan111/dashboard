@@ -54,7 +54,7 @@ export default function SessionsChart() {
         bgcolor: '#080808', // Changed to black
         color: "#fff",
         borderRadius: "10px",
-        border: "1px solid #333",
+        border: "1px solid #1e293b",
       }}
     >
       <CardContent>

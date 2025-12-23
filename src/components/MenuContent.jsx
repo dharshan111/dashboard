@@ -13,16 +13,16 @@ import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
 
 const mainListItems = [
-  { text: "Home", icon: <HomeRoundedIcon /> },
-  { text: "Analytics", icon: <AnalyticsRoundedIcon /> },
-  { text: "Clients", icon: <PeopleRoundedIcon /> },
-  { text: "Tasks", icon: <AssignmentRoundedIcon /> },
+  { text: "Home", icon: <HomeRoundedIcon sx={{ fontSize: "20px" }} /> },
+  { text: "Analytics", icon: <AnalyticsRoundedIcon sx={{ fontSize: "20px" }} /> },
+  { text: "Clients", icon: <PeopleRoundedIcon sx={{ fontSize: "20px" }} /> },
+  { text: "Tasks", icon: <AssignmentRoundedIcon sx={{ fontSize: "20px" }} /> },
 ];
 
 const secondaryListItems = [
-  { text: "Settings", icon: <SettingsRoundedIcon /> },
-  { text: "About", icon: <InfoRoundedIcon /> },
-  { text: "Feedback", icon: <HelpRoundedIcon /> },
+  { text: "Settings", icon: <SettingsRoundedIcon sx={{ fontSize: "20px" }} /> },
+  { text: "About", icon: <InfoRoundedIcon sx={{ fontSize: "20px" }} /> },
+  { text: "Feedback", icon: <HelpRoundedIcon sx={{ fontSize: "20px" }} /> },
 ];
 
 export default function MenuContent() {
@@ -36,13 +36,12 @@ export default function MenuContent() {
         "& .MuiListItemText-root": {
           "& .MuiTypography-root": {
             color: "#bdb4b4ff !important",
+            fontWeight: 800,
           },
         },
-
-        "& .MuiSvgIcon-root":{
-          color:"#999696ff !important",
+        "& .MuiSvgIcon-root": {
+          color: "#999696ff !important",
         },
-
       }}
     >
       <List dense>
@@ -50,10 +49,42 @@ export default function MenuContent() {
           <ListItem
             key={index}
             disablePadding
-            sx={{ display: "block", background: "#0C1118" }}
+            sx={{ 
+              display: "block", 
+              background: "#0C1118",
+              mb: 0.5,
+            }}
           >
-            <ListItemButton selected={index === 0}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemButton 
+              selected={index === 0}
+              sx={{
+                borderRadius: "10px",
+                
+                "&.Mui-selected": {
+                  backgroundColor: "grey.700",
+                  "&:hover": {
+                    backgroundColor: "grey.700",
+                  },
+                  "& .MuiListItemIcon-root, & .MuiListItemText-root .MuiTypography-root": {
+                    color: "white !important",
+                  },
+                  "& .MuiSvgIcon-root": {
+                    color: "white !important",
+                  },
+                },
+                // Hover state styles
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  "& .MuiListItemIcon-root, & .MuiListItemText-root .MuiTypography-root": {
+                    color: "white !important",
+                  },
+                  "& .MuiSvgIcon-root": {
+                    color: "white !important",
+                  },
+                },
+              }}
+            >
+              <ListItemIcon sx={{ minWidth: "32px" }}>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
@@ -64,10 +95,28 @@ export default function MenuContent() {
           <ListItem
             key={index}
             disablePadding
-            sx={{ display: "block", background: "#0C1118" }}
+            sx={{ 
+              display: "block", 
+              background: "#0C1118",
+              mb: 0.5,
+            }}
           >
-            <ListItemButton>
-              <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemButton
+              sx={{
+                borderRadius: "10px",
+                // Hover state styles
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  "& .MuiListItemIcon-root, & .MuiListItemText-root .MuiTypography-root": {
+                    color: "white !important",
+                  },
+                  "& .MuiSvgIcon-root": {
+                    color: "white !important",
+                  },
+                },
+              }}
+            >
+              <ListItemIcon sx={{ minWidth: "32px" }}>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>

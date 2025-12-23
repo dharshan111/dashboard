@@ -93,7 +93,6 @@ export default function SideMenu() {
       {/* Divider above user section */}
       <Divider sx={{ borderColor: '#1e293b' }} />
       
-      {/* User Profile Section */}
       <Stack
         direction="row"
         sx={{
