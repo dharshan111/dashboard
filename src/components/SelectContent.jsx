@@ -92,6 +92,7 @@ export default function SelectContent() {
               "&.Mui-selected": {
                 backgroundColor: "rgba(255, 255, 255, 0.15)", 
                 borderRadius:"10px",
+                border:"2px solid blue",
                 "&:hover": {
                   backgroundColor: "rgba(255, 255, 255, 0.2)",
                   
