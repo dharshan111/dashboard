@@ -1,7 +1,7 @@
 import React from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Typography, Box, IconButton } from '@mui/material';
-
+import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
 const MobileHeader = ({ toggleDrawer }) => {
   return (
     <Box
@@ -21,8 +21,12 @@ const MobileHeader = ({ toggleDrawer }) => {
         variant="h6"
         sx={{ 
           fontWeight: 600,
+          display:"flex",
+          alignItems:"center",
+          gap:1,          
         }}
       >
+        <DashboardRoundedIcon sx={{background:"blue", p:0.5, borderRadius:"15px",}}/>
         Dashboard
       </Typography>
       

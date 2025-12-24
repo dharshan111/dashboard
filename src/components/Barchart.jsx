@@ -31,7 +31,7 @@ export default function StackedBarChart() {
 
         <BarChart
           height={270}
-          
+        
           margin={{ top: 0, bottom: 15, left: 5, right: 5 }}
           series={[
             {
@@ -39,8 +39,11 @@ export default function StackedBarChart() {
               label: "page view",
               stack: "total",
               color: "#1A6ABB",
+
             },
 
+          
+            
             {
               data: uData,
               label: "Downloads",
@@ -100,14 +103,11 @@ export default function StackedBarChart() {
               padding: "20px",
             },
 
-            '& .MuiBarElement-root[data-series-id="conversions"]': {
-              borderRadius: "10px 10px 0 0",
-            },
+            
 
             "& .MuiChartsTooltip-root": {
               backgroundColor: "#1e293b",
               fill: "#fff !important",
-              borderRadius: "8px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
               "& .MuiChartsTooltip-label": {
                 fill: "#fff !important",
