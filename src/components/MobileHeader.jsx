@@ -45,4 +45,4 @@ const MobileHeader = ({ toggleDrawer }) => {
   )
 }
 
-export default MobileHeader
+export default MobileHeader;
