@@ -46,3 +46,4 @@ const MobileHeader = ({ toggleDrawer }) => {
 }
 
 export default MobileHeader;
+

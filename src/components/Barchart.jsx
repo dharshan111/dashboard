@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import Box from "@mui/material/Box";
+import {Box, useMediaQuery, useTheme} from "@mui/material";
 import { BarChart } from "@mui/x-charts/BarChart";
 import StatHeader from "./StatHeader";
 
@@ -9,6 +9,8 @@ const sData = [4051, 2275, 3129, 4693, 3904, 2093, 2274];
 const xLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
 
 export default function StackedBarChart() {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <>
       <Box
@@ -31,7 +33,6 @@ export default function StackedBarChart() {
 
         <BarChart
           height={270}
-        
           margin={{ top: 0, bottom: 15, left: 5, right: 5 }}
           series={[
             {
@@ -99,7 +100,7 @@ export default function StackedBarChart() {
             },
 
             "& .MuiBarElement-root": {
-              width: 35,
+              width: isMobile ? 25 : 35,
               padding: "20px",
             },
 

@@ -11,7 +11,7 @@ import MobileSidebar from "./components/MobileSidebar";
 // Dashboard Components
 import Head from "./components/Head";
 import DashboardStats from "./components/DashboardStats";
-import Fourthbx from "./components/Fourthbx";
+
 import Barchart from "./components/Barchart";
 import Barchart2 from "./components/Barchart2";
 import Datagrid from "./components/Datagrid";
@@ -69,23 +69,21 @@ const App = () => {
         <Typography
           variant="h6"
           sx={{
-            mt: { xs: 8, sm: 8, md: 8, lg: 0 }, // Desktop (lg) has 0 margin-top
+            mt: { xs: 8, sm: 8, md: 8, lg: 0 },
+            m: {lg:1},
+            mb:{lg:1}// Desktop (lg) has 0 margin-top
           }}
         >
           Overview
         </Typography>
 
-        <Grid container spacing={1} columns={12} sx={{ mb: 1 }}>
-          <Grid size={{ xs: 12, sm: 12, md: 12, lg: 9 }}>
+        <Grid container spacing={2} columns={12} sx={{ mb: 1 }}>
+          <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
             <DashboardStats />
-          </Grid>
-
-          <Grid size={{ xs: 12, sm: 12, md: 12, lg: 3 }}>
-            <Fourthbx />
           </Grid>
         </Grid>
 
-        <Grid container spacing={1} columns={12} sx={{ mb: 2 }}>
+        <Grid container spacing={2} columns={12} sx={{ mb: 2, mt: 2, }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Barchart2 />
           </Grid>
@@ -99,13 +97,14 @@ const App = () => {
         </Typography>
 
         <Grid container spacing={1} columns={12}>
-          <Grid size={{ xs: 12, lg: 9 }}>
+          <Grid size={{ xs: 12, lg: 9 }}> 
             <Datagrid />
           </Grid>
           <Grid size={{ xs: 12, lg: 3 }}>
             <Stack
               gap={2}
               direction={{ xs: "column", sm: "row", lg: "column" }}
+              
             >
               <Tree />
               <Piechart />

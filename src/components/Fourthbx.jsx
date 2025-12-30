@@ -4,10 +4,8 @@ import Button from "@mui/material/Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function Fourthbx() {
-
-
-
   return (
+    
     <>
       <Box
         sx={{
@@ -15,7 +13,7 @@ export default function Fourthbx() {
           p: 2.5,
           borderRadius: 2,
           border: "1px solid #1e293b",
-          height:200,
+          height:190,
           background:"#0B0E14",
           display:"flex",
           flexDirection:"column",

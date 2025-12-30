@@ -21,7 +21,8 @@ export default function StatCardSX(props) {
         borderRadius: 2,
         border: "1px solid #1e293b",
         width: "100%",
-        height:200,
+        height:190,
+        
       }}
     >
       {/* TITLE */}
